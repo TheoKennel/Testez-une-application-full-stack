@@ -5,7 +5,7 @@ import com.openclassrooms.starterjwt.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class  UserService {
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
