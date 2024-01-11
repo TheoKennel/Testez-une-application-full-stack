@@ -70,6 +70,8 @@ public class SessionController {
         }
     }
 
+
+    // method "save" ? But delete ?
     @DeleteMapping("{id}")
     public ResponseEntity<?> save(@PathVariable("id") String id) {
         try {
