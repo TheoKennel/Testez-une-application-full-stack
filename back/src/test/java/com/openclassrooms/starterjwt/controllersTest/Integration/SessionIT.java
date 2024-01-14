@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class SessionIntegrationTest {
+public class SessionIT {
 
     @Autowired
     private MockMvc mockMvc;

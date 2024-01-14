@@ -1,4 +1,4 @@
-package com.openclassrooms.starterjwt.controllersTest.unitaire;
+package com.openclassrooms.starterjwt.controllersTest.unitTest.controller;
 
 
 import com.openclassrooms.starterjwt.controllers.AuthController;
@@ -10,6 +10,7 @@ import com.openclassrooms.starterjwt.payload.response.MessageResponse;
 import com.openclassrooms.starterjwt.repository.UserRepository;
 import com.openclassrooms.starterjwt.security.jwt.JwtUtils;
 import com.openclassrooms.starterjwt.security.services.UserDetailsImpl;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -47,7 +48,8 @@ public class AuthControllerUnitTest {
      AuthController authController;
 
     @Test
-    public void authenticateUser_shouldAuthenticateUser_withGoodCredentials() {
+    @DisplayName("Authenticate user with valid credentials should succeed")
+    public void authenticateUser_withValidCredentials_ShouldSucceed() {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setEmail("openclassrooms@gmail.com");
         loginRequest.setPassword("123456");
@@ -81,7 +83,8 @@ public class AuthControllerUnitTest {
     }
 
     @Test
-    public void authenticateUser_InvalidCredentials_ReturnsUnauthorized(){
+    @DisplayName("Authenticate user with invalid credentials should throw BadCredentialsException")
+    public void authenticateUser_withInvalidCredentials_ShouldThrowException() {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setEmail("wrongemail@gmail.com");
         loginRequest.setPassword("wrongpassword");
@@ -98,7 +101,8 @@ public class AuthControllerUnitTest {
     }
 
     @Test
-    public void registerUser_shouldRegisterUser_WithGoodCredentials() {
+    @DisplayName("Register user with valid credentials should succeed")
+    public void registerUser_withValidCredentials_ShouldSucceed() {
         SignupRequest signupRequest = new SignupRequest();
         signupRequest.setEmail("openclassroom@gmail.com");
         signupRequest.setPassword("123456");
@@ -119,7 +123,8 @@ public class AuthControllerUnitTest {
     }
 
     @Test
-    public void registerUser_shouldNotRegisterUser_ExistingEmail() {
+    @DisplayName("Register user with existing email should fail")
+    public void registerUser_withExistingEmail_ShouldFail() {
         SignupRequest signupRequest = new SignupRequest();
         signupRequest.setEmail("openclassroom@gmail.com");
         signupRequest.setPassword("123456");

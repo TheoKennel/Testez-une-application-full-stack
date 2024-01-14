@@ -1,4 +1,4 @@
-package com.openclassrooms.starterjwt.controllersTest.unitaire;
+package com.openclassrooms.starterjwt.controllersTest.unitTest.controller;
 
 import com.openclassrooms.starterjwt.controllers.SessionController;
 import com.openclassrooms.starterjwt.dto.SessionDto;
@@ -6,6 +6,7 @@ import com.openclassrooms.starterjwt.mapper.SessionMapper;
 import com.openclassrooms.starterjwt.models.Session;
 import com.openclassrooms.starterjwt.services.SessionService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,7 +25,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-@Tag("SessionController_ClassTest")
+@Tag("SessionController_Tests")
+@DisplayName("Unit Tests for SessionController")
 public class SessionUnitTest {
 
     @Mock
@@ -39,8 +41,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("findById_Method_SessionController")
-    public void findById_shouldFindSession_ResponseOk() {
+    @DisplayName("Find session by ID should return response OK")
+    public void findById_ShouldFindSession_ResponseOk() {
         String id = "1";
         Session mockSession = mock(Session.class);
         when(sessionService.getById(Long.valueOf(id))).thenReturn(mockSession);
@@ -54,8 +56,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("findById_Method_SessionController")
-    public void findById_shouldNotFindSession_NotFound() {
+    @DisplayName("Find session by ID should return NOT FOUND for non-existent session")
+    public void findById_ShouldNotFindSession_NotFound() {
         String id = "1";
 
         when(sessionService.getById(Long.valueOf(id))).thenReturn(null);
@@ -67,8 +69,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("findById_Method_SessionController")
-    public void findById_withInvalidId_ShouldReturnBadRequest() {
+    @DisplayName("Find session by invalid ID should return BAD REQUEST")
+    public void findById_WithInvalidId_ShouldReturnBadRequest() {
         String id = "invalid";
 
         ResponseEntity<?> response = sessionController.findById(id);
@@ -78,8 +80,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("findAll_Method_SessionController")
-    public void findAll_ResponseOk() {
+    @DisplayName("Get all sessions should return response OK")
+    public void findAll_ShouldReturnResponseOk() {
         Session mockSession = mock(Session.class);
         List<Session> mockSessions = Collections.singletonList(mockSession);
         when(sessionService.findAll()).thenReturn(mockSessions);
@@ -92,8 +94,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("Create_Method_SessionController")
-    public void create_sessionDto_ResponseOk() {
+    @DisplayName("Create session should return response OK")
+    public void create_SessionDto_ShouldReturnResponseOk() {
         // EST ce que je dois test les logs ?
         SessionDto sessionDto = new SessionDto(
                 12L,
@@ -116,8 +118,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("Update_SessionDtoById_SessionController")
-    public void update_sessionDtoById_ResponseOk() {
+    @DisplayName("Update session by ID should return response OK")
+    public void update_SessionDtoById_ShouldReturnResponseOk() {
         String id = "1";
         Session mockSession = mock(Session.class);
         SessionDto sessionDto = new SessionDto(
@@ -138,8 +140,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("Update_SessionDtoById_SessionController")
-    public void update_sessionDtoById_badRequest() {
+    @DisplayName("Update with invalid session ID should return BAD REQUEST")
+    public void update_SessionDtoById_ShouldReturnBadRequest() {
         String id = "Invalid ID";
         SessionDto sessionDto = new SessionDto(
                 12L,
@@ -157,8 +159,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("Save_DeleteSessionById_SessionController")
-    public void save_stringId_deleteSession_responseOk() {
+    @DisplayName("Delete session by ID should return response OK")
+    public void delete_SessionById_ShouldReturnResponseOk() {
         String id = "1";
         Session mockSession = mock(Session.class);
         when(sessionService.getById(Long.valueOf(id))).thenReturn(mockSession);
@@ -168,8 +170,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("Save_DeleteSessionById_SessionController")
-    public void save_stringId_deleteSession_responseNotFound() {
+    @DisplayName("Delete non-existent session should return NOT FOUND")
+    public void delete_SessionById_ShouldReturnResponseNotFound() {
         String id = "1";
         when(sessionService.getById(Long.valueOf(id))).thenReturn(null);
         ResponseEntity<?> response = sessionController.save(id);
@@ -177,8 +179,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("Save_DeleteSessionById_SessionController")
-    public void save_stringId_deleteSession_responseBadRequest() {
+    @DisplayName("Delete session with invalid ID should return BAD REQUEST")
+    public void delete_SessionById_ShouldReturnResponseBadRequest() {
         String id = "abc";
         ResponseEntity<?> response = sessionController.save(id);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
@@ -186,8 +188,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("Participate_SessionUser_SessionController")
-    public void participate_idUserId_responseOk() {
+    @DisplayName("Participate in session should return response OK")
+    public void participate_InSession_ShouldReturnResponseOk() {
         String id = "1";
         String userId = "2";
         ResponseEntity<?> response = sessionController.participate(id, userId);
@@ -196,8 +198,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("Participate_SessionUser_SessionController")
-    public void participate_idUserId_responseBadRequest() {
+    @DisplayName("Participate in session with invalid IDs should return BAD REQUEST")
+    public void participate_InSession_InvalidIds_ShouldReturnBadRequest() {
         String id = "a";
         String userId = "b";
         ResponseEntity<?> response = sessionController.participate(id, userId);
@@ -206,8 +208,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("NoLongerParticipate_SessionUser_SessionController")
-    public void noLongerParticipate_idUserId_responseOk() {
+    @DisplayName("No longer participate in session should return response OK")
+    public void noLongerParticipate_InSession_ShouldReturnResponseOk() {
         String id = "1";
         String userId = "2";
         ResponseEntity<?> response = sessionController.noLongerParticipate(id, userId);
@@ -216,8 +218,8 @@ public class SessionUnitTest {
     }
 
     @Test
-    @Tag("NoLongerParticipate_SessionUser_SessionController")
-    public void noLongerParticipate_idUserId_responseBadRequest() {
+    @DisplayName("No longer participate in session with invalid IDs should return BAD REQUEST")
+    public void noLongerParticipate_InSession_InvalidIds_ShouldReturnBadRequest() {
         String id = "a";
         String userId = "b";
         ResponseEntity<?> response = sessionController.participate(id, userId);

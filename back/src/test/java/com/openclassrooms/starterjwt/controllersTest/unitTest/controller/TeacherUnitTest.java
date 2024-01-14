@@ -1,4 +1,4 @@
-package com.openclassrooms.starterjwt.controllersTest.unitaire;
+package com.openclassrooms.starterjwt.controllersTest.unitTest.controller;
 
 
 import com.openclassrooms.starterjwt.controllers.TeacherController;
@@ -6,6 +6,7 @@ import com.openclassrooms.starterjwt.mapper.TeacherMapper;
 import com.openclassrooms.starterjwt.models.Teacher;
 import com.openclassrooms.starterjwt.services.TeacherService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,6 +23,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @Tag("TeacherController_ClassTest")
+@DisplayName("Unit Tests for TeacherController")
 public class TeacherUnitTest {
 
     @Mock
@@ -36,8 +38,8 @@ public class TeacherUnitTest {
     }
 
     @Test
-    @Tag("FindById_TeacherController")
-    public void findById_id_ResponseOkBodyTeacher() {
+    @DisplayName("Find teacher by ID should return response OK with body")
+    public void findById_WithValidId_ShouldReturnResponseOkWithTeacher() {
         String id = "1";
         Teacher mockTeacher = mock(Teacher.class);
 
@@ -53,8 +55,8 @@ public class TeacherUnitTest {
     }
 
     @Test
-    @Tag("FindById_TeacherController")
-    public void findById_id_ResponseNotFound() {
+    @DisplayName("Find teacher by ID should return NOT FOUND for non-existent teacher")
+    public void findById_WithNonExistentId_ShouldReturnNotFound() {
         String id = "1";
 
         when(teacherService.findById(Long.valueOf(id))).thenReturn(null);
@@ -67,8 +69,8 @@ public class TeacherUnitTest {
     }
 
     @Test
-    @Tag("FindById_TeacherController")
-    public void findById_id_ResponseBadRequest() {
+    @DisplayName("Find teacher by ID with invalid format should return BAD REQUEST")
+    public void findById_WithInvalidIdFormat_ShouldReturnBadRequest() {
         String id = "a";
         ResponseEntity<?> response = teacherController.findById(id);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
@@ -77,8 +79,8 @@ public class TeacherUnitTest {
     }
 
     @Test
-    @Tag("FindAll_TeacherController")
-    public void findAll_ResponseOk() {
+    @DisplayName("Get all teachers should return response OK")
+    public void findAll_ShouldReturnResponseOkWithListOfTeachers() {
         Teacher mockTeacher = mock(Teacher.class);
         List<Teacher> teachers = Collections.singletonList(mockTeacher);
 
