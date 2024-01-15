@@ -1,4 +1,4 @@
-package com.openclassrooms.starterjwt.controllersTest.Integration;
+package com.openclassrooms.starterjwt.Integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openclassrooms.starterjwt.payload.request.LoginRequest;
@@ -51,7 +51,7 @@ public class AuthControllerIT {
     @Test
     public void shouldRegisterUser() throws Exception {
         SignupRequest signUpRequest = new SignupRequest();
-        signUpRequest.setEmail("newuser6@example.com");
+        signUpRequest.setEmail("newuser7@example.com");
         signUpRequest.setPassword("newPassword");
         signUpRequest.setFirstName("FirstName");
         signUpRequest.setLastName("LastName");
@@ -68,7 +68,7 @@ public class AuthControllerIT {
     @Test
     public void shouldRejectDuplicateEmailRegistration() throws Exception {
         SignupRequest signUpRequest = new SignupRequest();
-        signUpRequest.setEmail("duplicate6@example.com");
+        signUpRequest.setEmail("duplicate8@example.com");
         signUpRequest.setPassword("password");
         signUpRequest.setFirstName("FirstName");
         signUpRequest.setLastName("LastName");

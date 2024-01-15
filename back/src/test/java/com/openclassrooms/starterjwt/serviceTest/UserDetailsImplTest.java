@@ -1,4 +1,4 @@
-package com.openclassrooms.starterjwt.controllersTest.unitTest.services;
+package com.openclassrooms.starterjwt.serviceTest;
 
 import com.openclassrooms.starterjwt.security.services.UserDetailsImpl;
 import org.junit.jupiter.api.Tag;

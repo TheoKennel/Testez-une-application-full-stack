@@ -59,6 +59,7 @@ public class SessionController {
         return ResponseEntity.ok().body(this.sessionMapper.toDto(session));
     }
 
+    // Cette méthode ne vérifie pas si l'id existe déjà donc en créer une nouvelle si l'id n'existe pas.
     @PutMapping("{id}")
     public ResponseEntity<?> update(@PathVariable("id") String id, @Valid @RequestBody SessionDto sessionDto) {
         try {

@@ -1,4 +1,4 @@
-package com.openclassrooms.starterjwt.controllersTest.unitTest.services;
+package com.openclassrooms.starterjwt.serviceTest;
 
 import com.openclassrooms.starterjwt.models.User;
 import com.openclassrooms.starterjwt.repository.UserRepository;
