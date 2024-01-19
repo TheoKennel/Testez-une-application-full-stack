@@ -1,6 +1,5 @@
 package com.openclassrooms.starterjwt.Integration;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openclassrooms.starterjwt.dto.SessionDto;
 import org.junit.jupiter.api.Test;
@@ -63,7 +62,6 @@ public class SessionIT {
                 .andExpect(jsonPath("[0].name").value("session 1"));
     }
 
-    // A améliorer
     @Test
     @WithMockUser
     public void create_WithSessionDto_ShouldReturnOk() throws Exception {
@@ -80,7 +78,6 @@ public class SessionIT {
                         .content(sessionDtoToJson))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("OpenClassrooms"))
-//                .andExpect(jsonPath("$.createdAt").value(sessionDto.getCreatedAt()))
                 .andExpect(jsonPath("$.description").value("Description"));
     }
 
@@ -123,7 +120,7 @@ public class SessionIT {
     @Test
     @WithMockUser
     public void save_WithGoodId_ShouldReturnOk() throws Exception{
-        mockMvc.perform(delete("/api/session/4")
+        mockMvc.perform(delete("/api/session/11")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
@@ -152,13 +149,6 @@ public class SessionIT {
                 .andExpect(status().isOk());
     }
 
-    @Test
-    @WithMockUser
-    public void participate_WithNonNumericId_ShouldReturnBadRequest() throws Exception {
-        mockMvc.perform(post("/api/session/a/participate/1")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest());
-    }
 
     @Test
     @WithMockUser

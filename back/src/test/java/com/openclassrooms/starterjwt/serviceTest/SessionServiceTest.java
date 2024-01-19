@@ -8,15 +8,17 @@ import com.openclassrooms.starterjwt.repository.SessionRepository;
 import com.openclassrooms.starterjwt.repository.UserRepository;
 import com.openclassrooms.starterjwt.services.SessionService;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -94,23 +96,28 @@ public class SessionServiceTest {
 
     //Test bug impossible à valider ?
     @Test
-    @Disabled
     @DisplayName("No longer participate with valid session and user should remove user from session")
     public void noLongerParticipate_WithValidSessionAndUser_ShouldRemoveUser() {
-        Long id = 1L;
+        Long id = 2L;
         Long userId = 1L;
         Session mockSession = mock(Session.class);
-        User mockUser = mock(User.class);
-        List<User> users = new ArrayList<>();
-        users.add(mockUser);
+        User mockUserToRemove = mock(User.class);
+        User mockUserToStay = mock(User.class);
+        List<User> initialUsers = new ArrayList<>(Arrays.asList(mockUserToRemove, mockUserToStay));
 
+        when(mockSession.getUsers()).thenReturn(new ArrayList<>(initialUsers));
+        when(mockUserToRemove.getId()).thenReturn(userId);
+        when(mockUserToStay.getId()).thenReturn(3L);
         when(sessionRepository.findById(id)).thenReturn(Optional.of(mockSession));
-        when(mockSession.getUsers()).thenReturn(users);
-        when(mockUser.getId()).thenReturn(userId);
 
         sessionService.noLongerParticipate(id, userId);
-        assertThat(users).doesNotContain(mockUser);
-        verify(mockSession).setUsers(any());
+
+        ArgumentCaptor<List<User>> captor = ArgumentCaptor.forClass(List.class);
+        verify(mockSession).setUsers(captor.capture());
+        List<User> updatedUsers = captor.getValue();
+
+        assertThat(updatedUsers).doesNotContain(mockUserToRemove);
+        assertThat(updatedUsers).contains(mockUserToStay);
         verify(sessionRepository).save(mockSession);
     }
 
