@@ -50,9 +50,9 @@ public class UserControllerIT {
     }
 
     @Test
-    @WithMockUser(username = "newuser6@example.com")
+    @WithMockUser(username = "duplicate8@example.com")
     public void save_WithGoodId_ShouldReturnOk() throws Exception{
-        String id = "12";
+        String id = "16";
 
         mockMvc.perform(delete("/api/user/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON))

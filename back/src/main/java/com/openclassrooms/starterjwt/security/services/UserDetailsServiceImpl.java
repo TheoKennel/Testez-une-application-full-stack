@@ -10,7 +10,7 @@ import com.openclassrooms.starterjwt.models.User;
 import com.openclassrooms.starterjwt.repository.UserRepository;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class  UserDetailsServiceImpl implements UserDetailsService {
   UserRepository userRepository;
 
   UserDetailsServiceImpl(UserRepository userRepository) {

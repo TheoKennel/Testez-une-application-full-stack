@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Date;
 
@@ -22,6 +23,9 @@ public class SessionIT {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private WebApplicationContext webApplicationContext;
 
     @Test
     @WithMockUser
@@ -120,7 +124,7 @@ public class SessionIT {
     @Test
     @WithMockUser
     public void save_WithGoodId_ShouldReturnOk() throws Exception{
-        mockMvc.perform(delete("/api/session/11")
+        mockMvc.perform(delete("/api/session/16")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
@@ -180,6 +184,13 @@ public class SessionIT {
         mockMvc.perform(delete("/api/session/1/participate/a")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest());
+    }
+    @Test
+    public void requestWithInvalidJwtToken_ShouldBeUnauthorized() throws Exception {
+        String invalidJwtToken = "invalidToken";
+        mockMvc.perform(get("/api/session")
+                        .header("Authorization", invalidJwtToken))
+                .andExpect(status().isUnauthorized());
     }
 }
 
