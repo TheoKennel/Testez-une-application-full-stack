@@ -11,15 +11,31 @@ import { expect } from '@jest/globals';
 import { SessionService } from 'src/app/services/session.service';
 
 import { LoginComponent } from './login.component';
+import {AuthService} from "../../services/auth.service";
+import {of, throwError} from "rxjs";
+import {Router} from "@angular/router";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let mockSessionService = {
+    logIn : jest.fn()
+  }
+  let mockAuthService =  {
+    login: jest.fn()
+  }
+  let mockRoute = {
+    navigate : jest.fn()
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
-      providers: [SessionService],
+      providers: [
+      { provide: SessionService, useValue : mockSessionService },
+      { provide: AuthService, useValue : mockAuthService },
+      { provide: Router, useValue : mockRoute}
+    ],
       imports: [
         RouterTestingModule,
         BrowserAnimationsModule,
@@ -38,5 +54,27 @@ describe('LoginComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('submit', () => {
+    it('should handle successful login', () => {
+      mockAuthService.login.mockReturnValue(of(fixture));
+
+      component.submit();
+
+      expect(mockSessionService.logIn).toHaveBeenCalledWith(fixture);
+      expect(mockRoute.navigate).toHaveBeenCalledWith(['/sessions']);
+      expect(component.onError).toBe(false);
+    });
+  })
+
+  it('should set onError to true on error', () => {
+    mockAuthService.login.mockImplementation(() => {
+      return throwError("error message");
+    });
+
+    component.submit();
+
+    expect(component.onError).toBe(true);
   });
 });
