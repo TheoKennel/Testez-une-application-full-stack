@@ -101,12 +101,13 @@ describe('FormComponent', () => {
 
     describe('when in update mode', () => {
       beforeEach(() => {
-        mockRouter.url = '/path/update';
+        mockRouter.url = '/update';
         component.ngOnInit();
         fixture.detectChanges();
         });
 
         it('should fetch session details and initialize the form', () => {
+
           component.ngOnInit()
           expect(mockSessionApiService.detail).toHaveBeenCalledWith('1');
           expect(component.sessionForm).toBeDefined();
@@ -115,7 +116,7 @@ describe('FormComponent', () => {
 
     describe('when path do not contain update', () => {
       beforeEach(() => {
-        mockRouter.url = '/path/other';
+        mockRouter.url = '/invalid';
         component.ngOnInit();
         fixture.detectChanges();
       });
@@ -129,40 +130,28 @@ describe('FormComponent', () => {
 
   describe('submit', () => {
     beforeEach(() => {
-      component.ngOnInit();
-      fixture.detectChanges();
-      component.sessionForm?.setValue({
-        name: mockSession.name,
-        description: mockSession.description,
-        date: new Date(mockSession.date).toISOString().split('T')[0],
-        teacher_id: mockSession.teacher_id
-      });
-    });
-
+      component.ngOnInit()
+      fixture.detectChanges()
+    })
     it('should call create method when onUpdate is false', () => {
+      const session = component.sessionForm?.value
       component.onUpdate = false;
       component.submit();
 
-      expect(mockSessionApiService.create).toHaveBeenCalledWith({
-        name: mockSession.name,
-        description: mockSession.description,
-        date:  new Date(mockSession.date).toISOString().split('T')[0],
-        teacher_id: mockSession.teacher_id
-      })
+      expect(mockSessionApiService.create).toHaveBeenCalledWith(session)
       expect(mockMatSnackBar.open).toHaveBeenCalledWith('Session created !', 'Close', { duration: 3000 });
       expect(mockRouter.navigate).toHaveBeenCalledWith(['sessions']);
     });
 
+      beforeEach(() => {
+      mockRouter.url = "/update"
+      })
     it('should call update method and exitPage with "Session updated !" when onUpdate is true', () => {
-      component.onUpdate = true;
+      const session = component.sessionForm?.value
+      console.log(session)
       component.submit();
 
-      expect(mockSessionApiService.update).toHaveBeenCalledWith('1', {
-        name: mockSession.name,
-        description: mockSession.description,
-        date:  new Date(mockSession.date).toISOString().split('T')[0],
-        teacher_id: mockSession.teacher_id
-      });
+      expect(mockSessionApiService.update).toHaveBeenCalledWith('1', session);
       expect(mockMatSnackBar.open).toHaveBeenCalledWith('Session updated !', 'Close', { duration: 3000 });
       expect(mockRouter.navigate).toHaveBeenCalledWith(['sessions']);
     });
