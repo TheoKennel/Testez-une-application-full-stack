@@ -12,7 +12,7 @@ import { SessionService } from './services/session.service';
 })
 export class AppComponent {
   constructor(
-    private authService: AuthSgit aervice,
+    private authService: AuthService,
     private router: Router,
     private sessionService: SessionService) {
   }
