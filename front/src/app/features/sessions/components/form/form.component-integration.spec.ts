@@ -1,6 +1,6 @@
 import {ComponentFixture, fakeAsync, TestBed, tick} from "@angular/core/testing";
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 import {SessionInformation} from "../../../../interfaces/sessionInformation.interface";
 import {expect} from '@jest/globals';
@@ -15,6 +15,9 @@ import {SessionService} from "../../../../services/session.service";
 import {of} from "rxjs";
 import {SessionsRoutingModule} from "../../sessions-routing.module";
 import {By} from "@angular/platform-browser";
+import {Session} from "../../interfaces/session.interface";
+import {Teacher} from "../../../../interfaces/teacher.interface";
+import {ListComponent} from "../list/list.component";
 
 describe('Form Component integration', () => {
   let component : FormComponent;
@@ -22,6 +25,23 @@ describe('Form Component integration', () => {
   let httpTestingController: HttpTestingController;
   let router : Router;
   let matSnackBar : MatSnackBar;
+
+  const mockSession: Session = {
+    id: 1,
+    name: "session test",
+    description: "description de la session",
+    date: new Date(),
+    teacher_id: 1,
+    users: [2, 3],
+  };
+
+  const mockTeacher: Teacher = {
+    id: 1,
+    lastName: "Class",
+    firstName: "Rooms",
+    createdAt: new Date("2024-01-23"),
+    updatedAt: new Date("2024-01-23")
+  };
 
   const sessionInformation : SessionInformation =  {
     token :"1",
@@ -33,11 +53,18 @@ describe('Form Component integration', () => {
     admin : true
   };
 
+  const mockActivatedRoute = {
+    snapshot: {
+      paramMap: new Map([['id', '1']])
+    }
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations : [FormComponent],
       imports : [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+            { path: 'sessions', component: ListComponent }]),
         SessionsRoutingModule,
         HttpClientTestingModule,
         HttpClientModule,
@@ -52,7 +79,8 @@ describe('Form Component integration', () => {
       sessionInformation: sessionInformation,
         isLogged: true,
         $isLogged: () => of(true)
-    } }],
+    } },
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },],
     }).compileComponents()
 
     httpTestingController = TestBed.inject(HttpTestingController);
@@ -75,4 +103,33 @@ describe('Form Component integration', () => {
     expect(updateSessionTitle).toBeTruthy();
     expect(updateSessionTitle.textContent).toContain("Update session")
   }));
+
+  describe('Submit', () => {
+    it('should update session when you click submit button', async () => {
+      jest.spyOn(router, 'navigate');
+      jest.spyOn(matSnackBar, "open");
+      await router.navigate(['update', '1']);
+      component.teachers$ = of([mockTeacher])
+      fixture.detectChanges();
+      expect(router.url).toBe('/update/1');
+
+      const reqDetail = httpTestingController.expectOne('api/session/1');
+      reqDetail.flush(mockSession);
+
+      fixture.detectChanges();
+
+      expect(component.sessionForm).toBeDefined();
+
+      const buttonSubmit = fixture.debugElement.query(By.css('button[type="submit"]')).nativeElement
+      expect(buttonSubmit).toBeTruthy()
+
+     await buttonSubmit.click()
+
+      const req = httpTestingController.expectOne('api/session/1')
+      req.flush(null)
+      expect(req.request.method).toEqual("PUT");
+      expect(router.navigate).toHaveBeenCalledWith(['sessions'])
+      expect(matSnackBar.open).toHaveBeenCalledWith('Session updated !', 'Close', { duration: 3000 })
+    });
+  })
 });
