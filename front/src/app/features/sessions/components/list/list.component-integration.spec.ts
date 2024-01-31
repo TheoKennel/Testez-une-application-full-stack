@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from "@angular/core/testing";
-import {Router} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterTestingModule} from "@angular/router/testing";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -12,17 +11,16 @@ import {SessionService} from "../../../../services/session.service";
 import {By} from "@angular/platform-browser";
 import {expect} from '@jest/globals';
 import {ListComponent} from "./list.component";
-import {SessionApiService} from "../../services/session-api.service";
 import {SessionInformation} from "../../../../interfaces/sessionInformation.interface";
 import {Session} from "../../interfaces/session.interface";
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 
 describe("ListComponent Integration", () => {
-  let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
-  let router: Router;
   let sessionService: SessionService;
-  let sessionInformation : SessionInformation =  {
+  let httpTestingController: HttpTestingController;
+
+  const sessionInformation : SessionInformation =  {
     token :"45",
     type : "class",
     id: 25,
@@ -31,8 +29,6 @@ describe("ListComponent Integration", () => {
     lastName : "rooms",
     admin : true
   };
-  let httpTestingController: HttpTestingController;
-  let sessionApiService: SessionApiService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -46,12 +42,10 @@ describe("ListComponent Integration", () => {
         MatIconModule,
         MatFormFieldModule,
         MatInputModule,
-        ReactiveFormsModule],
-      providers: [ SessionApiService]
+        ReactiveFormsModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ListComponent);
-    component = fixture.componentInstance;
     sessionService = TestBed.inject(SessionService);
     sessionService.sessionInformation = sessionInformation
     httpTestingController = TestBed.inject(HttpTestingController);
