@@ -1,4 +1,4 @@
-import {ComponentFixture, fakeAsync, TestBed, tick} from "@angular/core/testing";
+import {ComponentFixture, fakeAsync, flush, TestBed, tick} from "@angular/core/testing";
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
@@ -105,11 +105,13 @@ describe('Form Component integration', () => {
   }));
 
   describe('Submit', () => {
-    it('should update session when you click submit button', async () => {
+    beforeEach(() => {
       jest.spyOn(router, 'navigate');
       jest.spyOn(matSnackBar, "open");
-      await router.navigate(['update', '1']);
       component.teachers$ = of([mockTeacher])
+    })
+    it('should update session when you click submit button', async () => {
+      await router.navigate(['update', '1']);
       fixture.detectChanges();
       expect(router.url).toBe('/update/1');
 
@@ -131,5 +133,39 @@ describe('Form Component integration', () => {
       expect(router.navigate).toHaveBeenCalledWith(['sessions'])
       expect(matSnackBar.open).toHaveBeenCalledWith('Session updated !', 'Close', { duration: 3000 })
     });
-  })
+
+    it('should create session when you click on submit button', fakeAsync(() => {
+      router.navigate(['create']);
+      tick();
+      fixture.detectChanges();
+
+      component.sessionForm!.patchValue({
+        name: 'New Session',
+        date: '2023-01-01',
+        teacher_id: '1',
+        description: 'Description of the new session'
+      });
+
+      fixture.detectChanges();
+
+      const buttonSubmit = fixture.debugElement.query(By.css('button[type="submit"]')).nativeElement;
+      buttonSubmit.click();
+      tick();
+
+      fixture.detectChanges();
+
+      const req = httpTestingController.expectOne(req =>
+        req.url ==='api/session' && req.method === "POST");
+      expect(req.request.body).toEqual({
+        name: 'New Session',
+        date: '2023-01-01',
+        teacher_id: '1',
+        description: 'Description of the new session'
+      });
+      req.flush(null);
+      flush();
+      expect(router.navigate).toHaveBeenCalledWith(['sessions']);
+      expect(matSnackBar.open).toHaveBeenCalledWith('Session created !', 'Close', { duration: 3000 });
+    }));
+  });
 });
