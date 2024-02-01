@@ -87,9 +87,7 @@ describe('DetailsComponent Integration', () => {
     httpTestingController.expectOne(req => req.url === `api/teacher/${mockSession.teacher_id}`
                                                                     && req.method === 'GET').flush(mockTeacher);
     fixture.detectChanges()
-
   });
-
 
   it('should create', () => {
     expect(component).toBeDefined();
@@ -112,7 +110,6 @@ describe('DetailsComponent Integration', () => {
   });
 
   describe('Participation', () => {
-
     beforeEach(() => {
       component.isAdmin = false;
       component.userId = '1';
