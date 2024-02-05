@@ -1,4 +1,4 @@
-describe('Admin Flow', () => {
+describe('Admin End to End path test', () => {
   before(() => {
     cy.visit('/login')
     cy.get('input[formControlName=email]').type("yoga@studio.com")
