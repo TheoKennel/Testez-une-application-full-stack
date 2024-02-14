@@ -30,12 +30,12 @@ public class SessionIT {
     @Test
     @WithMockUser
     public void findById_WithGoodId_ShouldReturnResponseOk() throws Exception {
-        Long idToFind = 2L;
+        Long idToFind = 104L;
         mockMvc.perform(get("/api/session/{id}", idToFind)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(idToFind))
-                .andExpect(jsonPath("$.name").value("session 1"));
+                .andExpect(jsonPath("$.name").value("Yogasession"));
     }
 
     @Test
@@ -62,15 +62,15 @@ public class SessionIT {
         mockMvc.perform(get("/api/session")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("[0].id").value("2"))
-                .andExpect(jsonPath("[0].name").value("session 1"));
+                .andExpect(jsonPath("[0].id").value("104"))
+                .andExpect(jsonPath("[0].name").value("Yogasession"));
     }
 
     @Test
     @WithMockUser
     public void create_WithSessionDto_ShouldReturnOk() throws Exception {
         SessionDto sessionDto = new SessionDto();
-        sessionDto.setName("OpenClassrooms");
+        sessionDto.setName("YogaSessionBackTest");
         sessionDto.setDate(new Date());
         sessionDto.setTeacher_id(0L);
         sessionDto.setDescription("Description");
@@ -81,7 +81,7 @@ public class SessionIT {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(sessionDtoToJson))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("OpenClassrooms"))
+                .andExpect(jsonPath("$.name").value("YogaSessionBackTest"))
                 .andExpect(jsonPath("$.description").value("Description"));
     }
 
@@ -96,7 +96,7 @@ public class SessionIT {
         ObjectMapper objectMapper = new ObjectMapper();
         String sessionDtoToJson = objectMapper.writeValueAsString(sessionDto);
 
-        mockMvc.perform(put("/api/session/1")
+        mockMvc.perform(put("/api/session/111")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(sessionDtoToJson))
                 .andExpect(status().isOk())
@@ -121,34 +121,11 @@ public class SessionIT {
                 .andExpect(status().isBadRequest());
     }
 
-    @Test
-    @WithMockUser
-    public void save_WithGoodId_ShouldReturnOk() throws Exception{
-        mockMvc.perform(delete("/api/session/16")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    @WithMockUser
-    public void save_WithSessionNull_ShouldReturnNotfound() throws Exception{
-        mockMvc.perform(delete("/api/session/1")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
-    }
-
-    @Test
-    @WithMockUser
-    public void save_WithNonNumericId_ShouldReturnBadRequest() throws Exception{
-        mockMvc.perform(delete("/api/session/a")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest());
-    }
 
     @Test
     @WithMockUser
     public void participate_WithGoodUserId_ShouldReturnOk() throws Exception {
-        mockMvc.perform(post("/api/session/2/participate/1")
+        mockMvc.perform(post("/api/session/115/participate/1")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
@@ -164,8 +141,8 @@ public class SessionIT {
 
     @Test
     @WithMockUser
-    public void noLongerParticipate_WithGoodId_ShouldReturnBadRequest() throws Exception {
-        mockMvc.perform(delete("/api/session/2/participate/1")
+    public void noLongerParticipate_WithGoodId_ShouldReturnOk() throws Exception {
+        mockMvc.perform(delete("/api/session/115/participate/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
@@ -182,6 +159,29 @@ public class SessionIT {
     @WithMockUser
     public void noLongerParticipate_WithNonNumericUserId_ShouldReturnBadRequest() throws Exception {
         mockMvc.perform(delete("/api/session/1/participate/a")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
+    }
+    @Test
+    @WithMockUser
+    public void save_WithGoodId_ShouldReturnOk() throws Exception{
+        mockMvc.perform(delete("/api/session/112")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser
+    public void save_WithSessionNull_ShouldReturnNotfound() throws Exception{
+        mockMvc.perform(delete("/api/session/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @WithMockUser
+    public void save_WithNonNumericId_ShouldReturnBadRequest() throws Exception{
+        mockMvc.perform(delete("/api/session/a")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest());
     }

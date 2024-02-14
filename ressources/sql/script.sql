@@ -42,5 +42,7 @@ VALUES ('Margot', 'DELAHAYE'),
 
 
 INSERT INTO USERS (first_name, last_name, admin, email, password)
-VALUES ('Admin', 'Admin', true, 'yoga@studio.com', '$2a$10$.Hsa/ZjUVaHqi0tp9xieMeewrnZxrZ5pQRzddUXE/WjDu2ZThe6Iq'); 
+VALUES ('Admin', 'Admin', true, 'yoga@studio.com', '$2a$10$.Hsa/ZjUVaHqi0tp9xieMeewrnZxrZ5pQRzddUXE/WjDu2ZThe6Iq');
 
+INSERT INTO USERS (first_name, last_name, admin, email, password)
+VALUES ('Admin2', 'Admin2', false, 'yoga2@studio.com', '$2a$10$.Hsa/ZjUVaHqi0tp9xieMeewrnZxrZ5pQRzddUXE/WjDu2ZThe6Iq');

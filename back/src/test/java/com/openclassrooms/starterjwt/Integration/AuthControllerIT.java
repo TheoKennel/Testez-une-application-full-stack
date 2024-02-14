@@ -51,7 +51,7 @@ public class AuthControllerIT {
     @Test
     public void shouldRegisterUser() throws Exception {
         SignupRequest signUpRequest = new SignupRequest();
-        signUpRequest.setEmail("newuser19@example.com");
+        signUpRequest.setEmail("newuserForTest3@example.com");
         signUpRequest.setPassword("newPassword");
         signUpRequest.setFirstName("FirstName");
         signUpRequest.setLastName("LastName");
@@ -68,7 +68,7 @@ public class AuthControllerIT {
     @Test
     public void shouldRejectDuplicateEmailRegistration() throws Exception {
         SignupRequest signUpRequest = new SignupRequest();
-        signUpRequest.setEmail("duplicate20@example.com");
+        signUpRequest.setEmail("duplicateEmailTest@gmail.com");
         signUpRequest.setPassword("password");
         signUpRequest.setFirstName("FirstName");
         signUpRequest.setLastName("LastName");

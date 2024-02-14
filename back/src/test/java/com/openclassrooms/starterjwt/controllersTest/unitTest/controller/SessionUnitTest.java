@@ -43,7 +43,7 @@ public class SessionUnitTest {
     @Test
     @DisplayName("Find session by ID should return response OK")
     public void findById_ShouldFindSession_ResponseOk() {
-        String id = "1";
+        String id = "104";
         Session mockSession = mock(Session.class);
         when(sessionService.getById(Long.valueOf(id))).thenReturn(mockSession);
 
@@ -96,13 +96,12 @@ public class SessionUnitTest {
     @Test
     @DisplayName("Create session should return response OK")
     public void create_SessionDto_ShouldReturnResponseOk() {
-        // EST ce que je dois test les logs ?
         SessionDto sessionDto = new SessionDto(
                 12L,
                 "test",
                 new Date(),
                 12L,
-                "Description of the session here",
+                "Description of the session",
                 Arrays.asList(1L, 2L, 3L),
                 LocalDateTime.now(),
                 LocalDateTime.now()
@@ -120,14 +119,14 @@ public class SessionUnitTest {
     @Test
     @DisplayName("Update session by ID should return response OK")
     public void update_SessionDtoById_ShouldReturnResponseOk() {
-        String id = "1";
+        String id = "12";
         Session mockSession = mock(Session.class);
         SessionDto sessionDto = new SessionDto(
                 12L,
-                "test",
+                "testUpdate",
                 new Date(),
                 12L,
-                "Description of the session here",
+                "Description of the session",
                 Arrays.asList(1L, 2L, 3L),
                 LocalDateTime.now(),
                 LocalDateTime.now()
@@ -148,7 +147,7 @@ public class SessionUnitTest {
                 "test",
                 new Date(),
                 12L,
-                "Description of the session here",
+                "Description of the session",
                 Arrays.asList(1L, 2L, 3L),
                 LocalDateTime.now(),
                 LocalDateTime.now()
@@ -161,7 +160,7 @@ public class SessionUnitTest {
     @Test
     @DisplayName("Delete session by ID should return response OK")
     public void delete_SessionById_ShouldReturnResponseOk() {
-        String id = "1";
+        String id = "12";
         Session mockSession = mock(Session.class);
         when(sessionService.getById(Long.valueOf(id))).thenReturn(mockSession);
         ResponseEntity<?> response = sessionController.save(id);
@@ -190,7 +189,7 @@ public class SessionUnitTest {
     @Test
     @DisplayName("Participate in session should return response OK")
     public void participate_InSession_ShouldReturnResponseOk() {
-        String id = "1";
+        String id = "104";
         String userId = "2";
         ResponseEntity<?> response = sessionController.participate(id, userId);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -210,7 +209,7 @@ public class SessionUnitTest {
     @Test
     @DisplayName("No longer participate in session should return response OK")
     public void noLongerParticipate_InSession_ShouldReturnResponseOk() {
-        String id = "1";
+        String id = "104";
         String userId = "2";
         ResponseEntity<?> response = sessionController.noLongerParticipate(id, userId);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);

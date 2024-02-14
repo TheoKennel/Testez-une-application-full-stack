@@ -48,6 +48,28 @@ public class AuthControllerUnitTest {
      AuthController authController;
 
     @Test
+    @DisplayName("Register user with valid credentials should succeed")
+    public void registerUser_withValidCredentials_ShouldSucceed() {
+        SignupRequest signupRequest = new SignupRequest();
+        signupRequest.setEmail("openclassroom@gmail.com");
+        signupRequest.setPassword("123456");
+        signupRequest.setFirstName("open");
+        signupRequest.setLastName("classroom");
+        User mockUser = mock(User.class);
+
+        when(userRepository.existsByEmail(signupRequest.getEmail())).thenReturn(false);
+        when(passwordEncoder.encode(signupRequest.getPassword())).thenReturn("passwordEncode");
+        when(userRepository.save(any())).thenReturn(mockUser);
+
+        ResponseEntity<?> response = authController.registerUser(signupRequest);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        MessageResponse messageResponse = (MessageResponse) response.getBody();
+        assertThat(messageResponse.getMessage()).isEqualTo("User registered successfully!");
+
+        verify(userRepository).save(any());
+    }
+
+    @Test
     @DisplayName("Authenticate user with valid credentials should succeed")
     public void authenticateUser_withValidCredentials_ShouldSucceed() {
         LoginRequest loginRequest = new LoginRequest();
@@ -100,27 +122,6 @@ public class AuthControllerUnitTest {
         verifyNoInteractions(jwtUtils, userRepository);
     }
 
-    @Test
-    @DisplayName("Register user with valid credentials should succeed")
-    public void registerUser_withValidCredentials_ShouldSucceed() {
-        SignupRequest signupRequest = new SignupRequest();
-        signupRequest.setEmail("openclassroom@gmail.com");
-        signupRequest.setPassword("123456");
-        signupRequest.setFirstName("open");
-        signupRequest.setLastName("classroom");
-        User mockUser = mock(User.class);
-
-        when(userRepository.existsByEmail(signupRequest.getEmail())).thenReturn(false);
-        when(passwordEncoder.encode(signupRequest.getPassword())).thenReturn("passwordEncode");
-        when(userRepository.save(any())).thenReturn(mockUser);
-
-        ResponseEntity<?> response = authController.registerUser(signupRequest);
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        MessageResponse messageResponse = (MessageResponse) response.getBody();
-        assertThat(messageResponse.getMessage()).isEqualTo("User registered successfully!");
-
-        verify(userRepository).save(any());
-    }
 
     @Test
     @DisplayName("Register user with existing email should fail")

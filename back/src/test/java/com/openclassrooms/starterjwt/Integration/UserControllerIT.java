@@ -32,7 +32,7 @@ public class UserControllerIT {
     @Test
     @WithMockUser
     public void findById_WithUserNull_ShouldReturnNotFound() throws Exception{
-        String id = "100";
+        String id = "1000";
 
         mockMvc.perform(get("/api/user/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -50,9 +50,9 @@ public class UserControllerIT {
     }
 
     @Test
-    @WithMockUser(username = "duplicate8@example.com")
+    @WithMockUser(username = "duplicate9@example.com")
     public void save_WithGoodId_ShouldReturnOk() throws Exception{
-        String id = "16";
+        String id = "18";
 
         mockMvc.perform(delete("/api/user/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -62,7 +62,7 @@ public class UserControllerIT {
     @Test
     @WithMockUser
     public void save_WithUserNull_ShouldReturnNotFound() throws Exception{
-        String id = "100";
+        String id = "1000";
 
         mockMvc.perform(delete("/api/user/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON))
