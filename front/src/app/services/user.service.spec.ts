@@ -12,6 +12,8 @@ describe('UserService', () => {
     delete: jest.fn()
   }
 
+  let baseApiUrl = "http://localhost:8080/";
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [{
@@ -33,7 +35,7 @@ describe('UserService', () => {
     service.getById('1').subscribe(user => {
       expect(user).toEqual(null)
     });
-    expect(httpClientSpy.get).toHaveBeenCalledWith("api/user/1")
+    expect(httpClientSpy.get).toHaveBeenCalledWith(baseApiUrl + "api/user/1")
   });
 
   it('should delete user by id', () => {
@@ -41,6 +43,6 @@ describe('UserService', () => {
     service.delete("1").subscribe(response => {
       expect(response).toEqual("deleted")
     });
-    expect(httpClientSpy.delete).toHaveBeenCalledWith("api/user/1")
+    expect(httpClientSpy.delete).toHaveBeenCalledWith(baseApiUrl + "api/user/1")
   });
 });

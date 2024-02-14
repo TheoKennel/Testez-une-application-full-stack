@@ -11,7 +11,8 @@ describe('TeacherService', () => {
     get : jest.fn()
   }
 
-  let pathService = 'api/teacher/1'
+  let baseApiUrl = "http://localhost:8080/";
+  let pathService = 'api/teacher/1';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -32,6 +33,6 @@ describe('TeacherService', () => {
     service.detail('1').subscribe(teacher => {
       expect(teacher).toEqual(null)
     })
-    expect(httpClientSpy.get).toHaveBeenCalledWith(pathService)
+    expect(httpClientSpy.get).toHaveBeenCalledWith(baseApiUrl + pathService)
   })
 });

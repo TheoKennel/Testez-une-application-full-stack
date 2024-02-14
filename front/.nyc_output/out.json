@@ -385,35 +385,35 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 54,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 1,
-      "11": 1,
-      "12": 1,
-      "13": 1,
-      "14": 1
+      "0": 11,
+      "1": 11,
+      "2": 11,
+      "3": 1826,
+      "4": 10,
+      "5": 10,
+      "6": 10,
+      "7": 3,
+      "8": 3,
+      "9": 3,
+      "10": 13,
+      "11": 11,
+      "12": 11,
+      "13": 11,
+      "14": 11
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 54,
-      "3": 1,
-      "4": 0,
-      "5": 1,
-      "6": 1
+      "0": 11,
+      "1": 11,
+      "2": 1826,
+      "3": 10,
+      "4": 3,
+      "5": 13,
+      "6": 11
     },
     "b": {
       "0": [
-        1,
-        1
+        11,
+        11
       ]
     },
     "inputSourceMap": {
@@ -487,7 +487,7 @@
         },
         "end": {
           "line": 11,
-          "column": 62
+          "column": 73
         }
       },
       "4": {
@@ -497,7 +497,7 @@
         },
         "end": {
           "line": 15,
-          "column": 65
+          "column": 76
         }
       },
       "5": {
@@ -702,32 +702,32 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 1,
-      "6": 0,
-      "7": 1,
-      "8": 1
+      "0": 11,
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "4": 1,
+      "5": 11,
+      "6": 3,
+      "7": 11,
+      "8": 11
     },
     "f": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0
+      "0": 11,
+      "1": 3,
+      "2": 3,
+      "3": 1,
+      "4": 3
     },
     "b": {
       "0": [
-        0,
-        0
+        3,
+        3
       ]
     },
     "inputSourceMap": {
       "version": 3,
-      "mappings": ";;AAQA,WAAaA,WAAb;EAAM,MAAOA,WAAP,CAAkB;IAItBC,YAAoBC,UAApB,EAA0C;MAAtB;MAFZ,mBAAc,UAAd;IAEuC;;IAExCC,OAAO,CAACC,EAAD,EAAW;MACvB,OAAO,KAAKF,UAAL,CAAgBG,GAAhB,CAA0B,GAAG,KAAKC,WAAW,IAAIF,EAAE,EAAnD,CAAP;IACD;;IAEMG,MAAM,CAACH,EAAD,EAAW;MACtB,OAAO,KAAKF,UAAL,CAAgBK,MAAhB,CAAuB,GAAG,KAAKD,WAAW,IAAIF,EAAE,EAAhD,CAAP;IACD;;EAZqB;;;qBAAXJ,aAAWQ;EAAA;;;WAAXR;IAAWS,SAAXT,WAAW;IAAAU,YAFV;;EAEd,OAAaV,WAAb;AAAA",
+      "mappings": ";;AAQA,WAAaA,WAAb;EAAM,MAAOA,WAAP,CAAkB;IAItBC,YAAoBC,UAApB,EAA0C;MAAtB;MAFZ,mBAAc,UAAd;IAEuC;;IAExCC,OAAO,CAACC,EAAD,EAAW;MACvB,OAAO,KAAKF,UAAL,CAAgBG,GAAhB,CAA0B,kCAAkCD,EAAE,EAA9D,CAAP;IACD;;IAEME,MAAM,CAACF,EAAD,EAAW;MACtB,OAAO,KAAKF,UAAL,CAAgBI,MAAhB,CAAuB,kCAAkCF,EAAE,EAA3D,CAAP;IACD;;EAZqB;;;qBAAXJ,aAAWO;EAAA;;;WAAXP;IAAWQ,SAAXR,WAAW;IAAAS,YAFV;;EAEd,OAAaT,WAAb;AAAA",
       "names": [
         "UserService",
         "constructor",
@@ -735,7 +735,6 @@
         "getById",
         "id",
         "get",
-        "pathService",
         "delete",
         "i0",
         "factory",
@@ -746,11 +745,11 @@
         "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\services\\user.service.ts"
       ],
       "sourcesContent": [
-        "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { User } from '../interfaces/user.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class UserService {\r\n\r\n  private pathService = 'api/user';\r\n\r\n  constructor(private httpClient: HttpClient) { }\r\n\r\n  public getById(id: string): Observable<User> {\r\n    return this.httpClient.get<User>(`${this.pathService}/${id}`);\r\n  }\r\n\r\n  public delete(id: string): Observable<any> {\r\n    return this.httpClient.delete(`${this.pathService}/${id}`);\r\n  }\r\n}\r\n"
+        "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { User } from '../interfaces/user.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class UserService {\r\n\r\n  private pathService = 'api/user';\r\n\r\n  constructor(private httpClient: HttpClient) { }\r\n\r\n  public getById(id: string): Observable<User> {\r\n    return this.httpClient.get<User>(`http://localhost:8080/api/user/${id}`);\r\n  }\r\n\r\n  public delete(id: string): Observable<any> {\r\n    return this.httpClient.delete(`http://localhost:8080/api/user/${id}`);\r\n  }\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "a88379523aa339c5878b1dad2b1ca701aae22b83"
+    "hash": "43f3334fab00a8279b5b4ab9a8960b1d43ccfa16"
   },
   "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\components\\me\\me.component.ts": {
     "path": "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\components\\me\\me.component.ts",
@@ -2229,139 +2228,139 @@
       }
     },
     "s": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 0,
-      "49": 0,
-      "50": 0,
-      "51": 0,
-      "52": 0,
-      "53": 0,
-      "54": 0,
-      "55": 0,
-      "56": 1,
-      "57": 0,
-      "58": 0,
-      "59": 0,
-      "60": 0,
-      "61": 0,
-      "62": 0,
+      "0": 6,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 6,
+      "5": 1,
+      "6": 1,
+      "7": 1,
+      "8": 1,
+      "9": 1,
+      "10": 1,
+      "11": 1,
+      "12": 1,
+      "13": 1,
+      "14": 1,
+      "15": 1,
+      "16": 1,
+      "17": 1,
+      "18": 1,
+      "19": 1,
+      "20": 12,
+      "21": 3,
+      "22": 3,
+      "23": 3,
+      "24": 3,
+      "25": 3,
+      "26": 3,
+      "27": 3,
+      "28": 3,
+      "29": 3,
+      "30": 3,
+      "31": 3,
+      "32": 3,
+      "33": 3,
+      "34": 3,
+      "35": 3,
+      "36": 3,
+      "37": 3,
+      "38": 3,
+      "39": 3,
+      "40": 3,
+      "41": 3,
+      "42": 12,
+      "43": 9,
+      "44": 9,
+      "45": 9,
+      "46": 9,
+      "47": 9,
+      "48": 9,
+      "49": 9,
+      "50": 9,
+      "51": 9,
+      "52": 9,
+      "53": 9,
+      "54": 9,
+      "55": 9,
+      "56": 11,
+      "57": 3,
+      "58": 3,
+      "59": 3,
+      "60": 3,
+      "61": 3,
+      "62": 3,
       "63": 0,
-      "64": 0,
-      "65": 0,
-      "66": 0,
-      "67": 0,
-      "68": 1,
-      "69": 0,
-      "70": 1,
-      "71": 0,
-      "72": 0,
-      "73": 0,
+      "64": 1,
+      "65": 1,
+      "66": 1,
+      "67": 1,
+      "68": 11,
+      "69": 3,
+      "70": 11,
+      "71": 27,
+      "72": 3,
+      "73": 3,
       "74": 0,
-      "75": 0,
-      "76": 0,
-      "77": 0,
-      "78": 0,
-      "79": 0,
-      "80": 0,
-      "81": 0,
-      "82": 0,
-      "83": 0,
-      "84": 0,
-      "85": 0,
-      "86": 0,
-      "87": 1
+      "75": 3,
+      "76": 3,
+      "77": 3,
+      "78": 3,
+      "79": 3,
+      "80": 3,
+      "81": 3,
+      "82": 3,
+      "83": 3,
+      "84": 27,
+      "85": 24,
+      "86": 24,
+      "87": 11
     },
     "f": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 1,
-      "5": 0,
-      "6": 0,
-      "7": 0,
+      "0": 6,
+      "1": 6,
+      "2": 1,
+      "3": 12,
+      "4": 11,
+      "5": 3,
+      "6": 3,
+      "7": 3,
       "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
+      "9": 1,
+      "10": 1,
+      "11": 3,
+      "12": 27,
       "13": 0
     },
     "b": {
       "0": [
-        0,
-        0
+        2,
+        4
       ],
       "1": [
-        0,
-        0
+        1,
+        5
       ],
       "2": [
-        0,
-        0
+        3,
+        9
       ],
       "3": [
-        0,
-        0
+        9,
+        3
       ],
       "4": [
-        0,
-        0
+        3,
+        3
       ],
       "5": [
-        0,
-        0
+        3,
+        24
       ],
       "6": [
-        0,
-        0
+        24,
+        3
       ]
     },
     "inputSourceMap": {
@@ -2654,18 +2653,18 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
+      "0": 11,
+      "1": 11,
       "2": 0,
-      "3": 1,
+      "3": 11,
       "4": 0,
       "5": 0,
       "6": 0,
       "7": 0,
-      "8": 1
+      "8": 11
     },
     "f": {
-      "0": 1,
+      "0": 11,
       "1": 0,
       "2": 0
     },
@@ -2991,32 +2990,32 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
+      "0": 11,
+      "1": 10,
+      "2": 10,
+      "3": 13,
       "4": 0,
       "5": 0,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1
+      "6": 13,
+      "7": 11,
+      "8": 10,
+      "9": 11,
+      "10": 11
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1
+      "0": 11,
+      "1": 10,
+      "2": 13,
+      "3": 10
     },
     "b": {
       "0": [
         0,
-        1
+        13
       ],
       "1": [
-        1,
-        1
+        10,
+        10
       ]
     },
     "inputSourceMap": {
@@ -3333,32 +3332,32 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
+      "0": 11,
+      "1": 11,
+      "2": 11,
+      "3": 14,
       "4": 0,
       "5": 0,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1
+      "6": 14,
+      "7": 11,
+      "8": 11,
+      "9": 11,
+      "10": 11
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1
+      "0": 11,
+      "1": 11,
+      "2": 14,
+      "3": 11
     },
     "b": {
       "0": [
         0,
-        1
+        14
       ],
       "1": [
-        1,
-        1
+        11,
+        11
       ]
     },
     "inputSourceMap": {
@@ -3687,30 +3686,30 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1
+      "0": 11,
+      "1": 11,
+      "2": 11,
+      "3": 10,
+      "4": 10,
+      "5": 11,
+      "6": 11,
+      "7": 11,
+      "8": 11,
+      "9": 11,
+      "10": 11
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1
+      "0": 11,
+      "1": 11,
+      "2": 10,
+      "3": 10,
+      "4": 11,
+      "5": 11
     },
     "b": {
       "0": [
-        1,
-        1
+        11,
+        11
       ]
     },
     "inputSourceMap": {
@@ -3755,7 +3754,7 @@
           "column": 38
         },
         "end": {
-          "line": 30,
+          "line": 29,
           "column": 4
         }
       },
@@ -3771,71 +3770,61 @@
       },
       "2": {
         "start": {
-          "line": 7,
+          "line": 10,
           "column": 6
         },
         "end": {
-          "line": 7,
-          "column": 36
+          "line": 10,
+          "column": 94
         }
       },
       "3": {
         "start": {
-          "line": 11,
+          "line": 14,
           "column": 6
         },
         "end": {
-          "line": 11,
-          "column": 83
+          "line": 14,
+          "column": 88
         }
       },
       "4": {
         "start": {
-          "line": 15,
-          "column": 6
+          "line": 19,
+          "column": 2
         },
         "end": {
-          "line": 15,
-          "column": 77
+          "line": 21,
+          "column": 4
         }
       },
       "5": {
         "start": {
           "line": 20,
-          "column": 2
+          "column": 4
         },
         "end": {
-          "line": 22,
-          "column": 4
+          "line": 20,
+          "column": 62
         }
       },
       "6": {
         "start": {
-          "line": 21,
-          "column": 4
+          "line": 23,
+          "column": 2
         },
         "end": {
-          "line": 21,
-          "column": 62
+          "line": 27,
+          "column": 5
         }
       },
       "7": {
         "start": {
-          "line": 24,
+          "line": 28,
           "column": 2
         },
         "end": {
           "line": 28,
-          "column": 5
-        }
-      },
-      "8": {
-        "start": {
-          "line": 29,
-          "column": 2
-        },
-        "end": {
-          "line": 29,
           "column": 21
         }
       }
@@ -3859,7 +3848,7 @@
             "column": 45
           },
           "end": {
-            "line": 30,
+            "line": 29,
             "column": 1
           }
         },
@@ -3883,7 +3872,7 @@
             "column": 28
           },
           "end": {
-            "line": 8,
+            "line": 7,
             "column": 5
           }
         },
@@ -3893,84 +3882,84 @@
         "name": "(anonymous_2)",
         "decl": {
           "start": {
-            "line": 10,
+            "line": 9,
             "column": 4
           },
           "end": {
-            "line": 10,
+            "line": 9,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 10,
+            "line": 9,
             "column": 30
           },
           "end": {
-            "line": 12,
+            "line": 11,
             "column": 5
           }
         },
-        "line": 10
+        "line": 9
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 14,
+            "line": 13,
             "column": 4
           },
           "end": {
-            "line": 14,
+            "line": 13,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 14,
+            "line": 13,
             "column": 24
           },
           "end": {
-            "line": 16,
+            "line": 15,
             "column": 5
           }
         },
-        "line": 14
+        "line": 13
       },
       "4": {
         "name": "AuthService_Factory",
         "decl": {
           "start": {
-            "line": 20,
+            "line": 19,
             "column": 30
           },
           "end": {
-            "line": 20,
+            "line": 19,
             "column": 49
           }
         },
         "loc": {
           "start": {
-            "line": 20,
+            "line": 19,
             "column": 53
           },
           "end": {
-            "line": 22,
+            "line": 21,
             "column": 3
           }
         },
-        "line": 20
+        "line": 19
       }
     },
     "branchMap": {
       "0": {
         "loc": {
           "start": {
-            "line": 21,
+            "line": 20,
             "column": 16
           },
           "end": {
-            "line": 21,
+            "line": 20,
             "column": 32
           }
         },
@@ -3978,55 +3967,54 @@
         "locations": [
           {
             "start": {
-              "line": 21,
+              "line": 20,
               "column": 16
             },
             "end": {
-              "line": 21,
+              "line": 20,
               "column": 17
             }
           },
           {
             "start": {
-              "line": 21,
+              "line": 20,
               "column": 21
             },
             "end": {
-              "line": 21,
+              "line": 20,
               "column": 32
             }
           }
         ],
-        "line": 21
+        "line": 20
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 0,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1
+      "0": 11,
+      "1": 11,
+      "2": 10,
+      "3": 10,
+      "4": 11,
+      "5": 11,
+      "6": 11,
+      "7": 11
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 0,
-      "3": 1,
-      "4": 1
+      "0": 11,
+      "1": 11,
+      "2": 10,
+      "3": 10,
+      "4": 11
     },
     "b": {
       "0": [
-        1,
-        1
+        11,
+        11
       ]
     },
     "inputSourceMap": {
       "version": 3,
-      "mappings": ";;AAUA,WAAaA,WAAb;EAAM,MAAOA,WAAP,CAAkB;IAItBC,YAAoBC,UAApB,EAA0C;MAAtB;MAFZ,mBAAc,UAAd;IAEuC;;IAExCC,QAAQ,CAACC,eAAD,EAAiC;MAC9C,OAAO,KAAKF,UAAL,CAAgBG,IAAhB,CAA2B,GAAG,KAAKC,WAAW,WAA9C,EAA2DF,eAA3D,CAAP;IACD;;IAEMG,KAAK,CAACC,YAAD,EAA2B;MACrC,OAAO,KAAKN,UAAL,CAAgBG,IAAhB,CAAyC,GAAG,KAAKC,WAAW,QAA5D,EAAsEE,YAAtE,CAAP;IACD;;EAZqB;;;qBAAXR,aAAWS;EAAA;;;WAAXT;IAAWU,SAAXV,WAAW;IAAAW,YAFV;;EAEd,OAAaX,WAAb;AAAA",
+      "mappings": ";;AAUA,WAAaA,WAAb;EAAM,MAAOA,WAAP,CAAkB;IAEtBC,YAAoBC,UAApB,EAA0C;MAAtB;IAA2B;;IAExCC,QAAQ,CAACC,eAAD,EAAiC;MAC9C,OAAO,KAAKF,UAAL,CAAgBG,IAAhB,CAA2B,yCAA3B,EAAsED,eAAtE,CAAP;IACD;;IAEME,KAAK,CAACC,YAAD,EAA2B;MACrC,OAAO,KAAKL,UAAL,CAAgBG,IAAhB,CAAyC,sCAAzC,EAAiFE,YAAjF,CAAP;IACD;;EAVqB;;;qBAAXP,aAAWQ;EAAA;;;WAAXR;IAAWS,SAAXT,WAAW;IAAAU,YAFV;;EAEd,OAAaV,WAAb;AAAA",
       "names": [
         "AuthService",
         "constructor",
@@ -4034,7 +4022,6 @@
         "register",
         "registerRequest",
         "post",
-        "pathService",
         "login",
         "loginRequest",
         "i0",
@@ -4046,11 +4033,11 @@
         "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\features\\auth\\services\\auth.service.ts"
       ],
       "sourcesContent": [
-        "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { LoginRequest } from '../interfaces/loginRequest.interface';\r\nimport { RegisterRequest } from '../interfaces/registerRequest.interface';\r\nimport { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class AuthService {\r\n\r\n  private pathService = 'api/auth';\r\n\r\n  constructor(private httpClient: HttpClient) { }\r\n\r\n  public register(registerRequest: RegisterRequest): Observable<void> {\r\n    return this.httpClient.post<void>(`${this.pathService}/register`, registerRequest);\r\n  }\r\n\r\n  public login(loginRequest: LoginRequest): Observable<SessionInformation> {\r\n    return this.httpClient.post<SessionInformation>(`${this.pathService}/login`, loginRequest);\r\n  }\r\n}\r\n"
+        "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { LoginRequest } from '../interfaces/loginRequest.interface';\r\nimport { RegisterRequest } from '../interfaces/registerRequest.interface';\r\nimport { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class AuthService {\r\n\r\n  constructor(private httpClient: HttpClient) { }\r\n\r\n  public register(registerRequest: RegisterRequest): Observable<void> {\r\n    return this.httpClient.post<void>(`http://localhost:8080/api/auth/register`, registerRequest);\r\n  }\r\n\r\n  public login(loginRequest: LoginRequest): Observable<SessionInformation> {\r\n    return this.httpClient.post<SessionInformation>(`http://localhost:8080/api/auth/login`, loginRequest);\r\n  }\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "5d7a3a1b85b38bfbdc995e5e0de8c8b75a102e0b"
+    "hash": "ffef4e18b52113e92da6d16e8806a4ceab298446"
   },
   "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\app.component.ts": {
     "path": "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\app.component.ts",
@@ -4937,86 +4924,86 @@
       }
     },
     "s": {
-      "0": 11,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 1,
-      "14": 1,
-      "15": 45,
-      "16": 1,
-      "17": 1,
-      "18": 1,
-      "19": 1,
-      "20": 1,
-      "21": 1,
-      "22": 1,
-      "23": 1,
-      "24": 1,
-      "25": 1,
-      "26": 54,
-      "27": 0,
-      "28": 0,
-      "29": 1,
-      "30": 1,
-      "31": 1,
-      "32": 55,
-      "33": 1,
-      "34": 1,
-      "35": 1,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1,
-      "42": 1,
-      "43": 55,
-      "44": 54,
-      "45": 54,
-      "46": 54,
-      "47": 1
+      "0": 1083,
+      "1": 10,
+      "2": 10,
+      "3": 10,
+      "4": 10,
+      "5": 10,
+      "6": 10,
+      "7": 10,
+      "8": 10,
+      "9": 10,
+      "10": 2,
+      "11": 2,
+      "12": 2,
+      "13": 10,
+      "14": 10,
+      "15": 767,
+      "16": 14,
+      "17": 14,
+      "18": 14,
+      "19": 14,
+      "20": 14,
+      "21": 14,
+      "22": 11,
+      "23": 11,
+      "24": 11,
+      "25": 11,
+      "26": 1826,
+      "27": 2,
+      "28": 2,
+      "29": 11,
+      "30": 11,
+      "31": 11,
+      "32": 1837,
+      "33": 11,
+      "34": 11,
+      "35": 11,
+      "36": 11,
+      "37": 11,
+      "38": 11,
+      "39": 11,
+      "40": 11,
+      "41": 11,
+      "42": 11,
+      "43": 1837,
+      "44": 1826,
+      "45": 1826,
+      "46": 1826,
+      "47": 11
     },
     "f": {
-      "0": 11,
-      "1": 0,
-      "2": 45,
-      "3": 1,
-      "4": 1,
-      "5": 54,
-      "6": 0,
-      "7": 1,
-      "8": 55
+      "0": 1083,
+      "1": 2,
+      "2": 767,
+      "3": 11,
+      "4": 11,
+      "5": 1826,
+      "6": 2,
+      "7": 11,
+      "8": 1837
     },
     "b": {
       "0": [
-        1,
-        10
+        10,
+        1073
       ],
       "1": [
-        1,
-        44
+        14,
+        753
       ],
       "2": [
-        1,
-        1
+        11,
+        11
       ],
       "3": [
-        1,
-        54
+        11,
+        1826
       ],
       "4": [
-        54,
-        1
+        1826,
+        11
       ]
     },
     "inputSourceMap": {
@@ -5320,30 +5307,30 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 2,
-      "3": 1,
-      "4": 2,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1
+      "0": 11,
+      "1": 11,
+      "2": 97,
+      "3": 77,
+      "4": 97,
+      "5": 11,
+      "6": 11,
+      "7": 11,
+      "8": 11
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 2,
-      "3": 1
+      "0": 11,
+      "1": 11,
+      "2": 97,
+      "3": 11
     },
     "b": {
       "0": [
-        1,
-        1
+        77,
+        20
       ],
       "1": [
-        1,
-        1
+        11,
+        11
       ]
     },
     "inputSourceMap": {
@@ -5543,22 +5530,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 11,
+      "1": 11,
+      "2": 11,
+      "3": 11,
+      "4": 11,
+      "5": 11,
+      "6": 11
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 11,
+      "1": 11
     },
     "b": {
       "0": [
-        1,
-        1
+        11,
+        11
       ]
     },
     "inputSourceMap": {
@@ -5614,13 +5601,13 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 1
+      "0": 11
     },
     "f": {},
     "b": {},
     "inputSourceMap": {
       "version": 3,
-      "mappings": "AAAA,OAAO,MAAMA,WAAW,GAAG;EACzBC,OAAO,EAAE,qBADgB;EAEzBC,UAAU,EAAE;AAFa,CAApB",
+      "mappings": "AAAA,OAAO,MAAMA,WAAW,GAAG;EACzBC,OAAO,EAAE,iBADgB;EAEzBC,UAAU,EAAE;AAFa,CAApB",
       "names": [
         "environment",
         "baseUrl",
@@ -5631,11 +5618,11 @@
         "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\environments\\environment.ts"
       ],
       "sourcesContent": [
-        "export const environment = {\r\n  baseUrl: 'localhost:8080/api/',\r\n  production: false\r\n};\r\n"
+        "export const environment = {\r\n  baseUrl: 'localhost:8080/',\r\n  production: false\r\n};\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "9e8f599a73931238a692ce88015dd4dfdcfb6445"
+    "hash": "e25711ba8408bfe43337365e2f0b5f9bc14d11c7"
   },
   "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\main.ts": {
     "path": "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\main.ts",
@@ -5746,9 +5733,9 @@
       }
     },
     "s": {
-      "0": 1,
+      "0": 11,
       "1": 0,
-      "2": 1,
+      "2": 11,
       "3": 0
     },
     "f": {
@@ -5757,7 +5744,7 @@
     "b": {
       "0": [
         0,
-        1
+        11
       ]
     },
     "inputSourceMap": {
@@ -6825,71 +6812,71 @@
       "1": 0,
       "2": 0,
       "3": 0,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1,
-      "11": 1,
-      "12": 1,
-      "13": 1,
-      "14": 1,
-      "15": 1,
+      "4": 11,
+      "5": 11,
+      "6": 11,
+      "7": 11,
+      "8": 11,
+      "9": 11,
+      "10": 11,
+      "11": 11,
+      "12": 10,
+      "13": 10,
+      "14": 10,
+      "15": 10,
       "16": 0,
-      "17": 1,
-      "18": 1,
-      "19": 1,
-      "20": 43,
-      "21": 1,
-      "22": 1,
-      "23": 1,
-      "24": 1,
-      "25": 1,
-      "26": 1,
-      "27": 1,
-      "28": 1,
-      "29": 1,
-      "30": 1,
-      "31": 1,
-      "32": 1,
-      "33": 1,
-      "34": 2,
-      "35": 1,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1,
-      "42": 1,
-      "43": 43,
-      "44": 42,
-      "45": 42,
-      "46": 42,
-      "47": 42,
-      "48": 42,
-      "49": 42,
-      "50": 42,
-      "51": 42,
-      "52": 42,
-      "53": 42,
-      "54": 42,
-      "55": 42,
-      "56": 1
+      "17": 11,
+      "18": 11,
+      "19": 11,
+      "20": 453,
+      "21": 11,
+      "22": 11,
+      "23": 11,
+      "24": 11,
+      "25": 11,
+      "26": 10,
+      "27": 11,
+      "28": 11,
+      "29": 11,
+      "30": 11,
+      "31": 11,
+      "32": 11,
+      "33": 11,
+      "34": 20,
+      "35": 11,
+      "36": 11,
+      "37": 11,
+      "38": 11,
+      "39": 11,
+      "40": 11,
+      "41": 11,
+      "42": 11,
+      "43": 453,
+      "44": 442,
+      "45": 442,
+      "46": 442,
+      "47": 442,
+      "48": 442,
+      "49": 442,
+      "50": 442,
+      "51": 442,
+      "52": 442,
+      "53": 442,
+      "54": 442,
+      "55": 442,
+      "56": 11
     },
     "f": {
       "0": 0,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
+      "1": 11,
+      "2": 11,
+      "3": 10,
+      "4": 10,
       "5": 0,
-      "6": 1,
-      "7": 43,
-      "8": 1,
-      "9": 2
+      "6": 11,
+      "7": 453,
+      "8": 10,
+      "9": 20
     },
     "b": {
       "0": [
@@ -6897,24 +6884,24 @@
         0
       ],
       "1": [
-        1,
-        1
+        11,
+        11
       ],
       "2": [
-        1,
-        42
+        11,
+        442
       ],
       "3": [
-        42,
-        1
+        442,
+        11
       ],
       "4": [
-        40,
-        2
+        422,
+        20
       ],
       "5": [
-        40,
-        2
+        422,
+        20
       ]
     },
     "inputSourceMap": {
@@ -7829,62 +7816,62 @@
       "1": 0,
       "2": 0,
       "3": 0,
-      "4": 1,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 1,
-      "15": 0,
-      "16": 1,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 1
+      "4": 11,
+      "5": 5,
+      "6": 5,
+      "7": 5,
+      "8": 5,
+      "9": 5,
+      "10": 10,
+      "11": 10,
+      "12": 5,
+      "13": 4,
+      "14": 11,
+      "15": 5,
+      "16": 11,
+      "17": 285,
+      "18": 5,
+      "19": 5,
+      "20": 5,
+      "21": 5,
+      "22": 5,
+      "23": 10,
+      "24": 5,
+      "25": 5,
+      "26": 5,
+      "27": 5,
+      "28": 5,
+      "29": 5,
+      "30": 5,
+      "31": 5,
+      "32": 5,
+      "33": 5,
+      "34": 5,
+      "35": 5,
+      "36": 5,
+      "37": 5,
+      "38": 5,
+      "39": 5,
+      "40": 5,
+      "41": 285,
+      "42": 280,
+      "43": 280,
+      "44": 280,
+      "45": 280,
+      "46": 280,
+      "47": 280,
+      "48": 11
     },
     "f": {
       "0": 0,
-      "1": 1,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0
+      "1": 11,
+      "2": 5,
+      "3": 10,
+      "4": 5,
+      "5": 4,
+      "6": 5,
+      "7": 285,
+      "8": 10
     },
     "b": {
       "0": [
@@ -7892,16 +7879,16 @@
         0
       ],
       "1": [
-        0,
-        0
+        5,
+        5
       ],
       "2": [
-        0,
-        0
+        5,
+        280
       ],
       "3": [
-        0,
-        0
+        280,
+        5
       ]
     },
     "inputSourceMap": {
@@ -8117,22 +8104,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 11,
+      "1": 11,
+      "2": 11,
+      "3": 11,
+      "4": 11,
+      "5": 11,
+      "6": 11
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 11,
+      "1": 11
     },
     "b": {
       "0": [
-        1,
-        1
+        11,
+        11
       ]
     },
     "inputSourceMap": {
@@ -8323,22 +8310,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 11,
+      "1": 11,
+      "2": 11,
+      "3": 11,
+      "4": 11,
+      "5": 11,
+      "6": 11
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 11,
+      "1": 11
     },
     "b": {
       "0": [
-        1,
-        1
+        11,
+        11
       ]
     },
     "inputSourceMap": {
@@ -8409,7 +8396,7 @@
         },
         "end": {
           "line": 11,
-          "column": 51
+          "column": 70
         }
       },
       "4": {
@@ -8419,7 +8406,7 @@
         },
         "end": {
           "line": 15,
-          "column": 62
+          "column": 76
         }
       },
       "5": {
@@ -8429,7 +8416,7 @@
         },
         "end": {
           "line": 19,
-          "column": 65
+          "column": 79
         }
       },
       "6": {
@@ -8439,7 +8426,7 @@
         },
         "end": {
           "line": 23,
-          "column": 61
+          "column": 80
         }
       },
       "7": {
@@ -8449,7 +8436,7 @@
         },
         "end": {
           "line": 27,
-          "column": 71
+          "column": 85
         }
       },
       "8": {
@@ -8459,7 +8446,7 @@
         },
         "end": {
           "line": 31,
-          "column": 91
+          "column": 105
         }
       },
       "9": {
@@ -8469,7 +8456,7 @@
         },
         "end": {
           "line": 35,
-          "column": 87
+          "column": 101
         }
       },
       "10": {
@@ -8794,49 +8781,48 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 1,
-      "11": 1,
-      "12": 1,
-      "13": 1
+      "0": 10,
+      "1": 10,
+      "2": 10,
+      "3": 24,
+      "4": 14,
+      "5": 3,
+      "6": 5,
+      "7": 4,
+      "8": 2,
+      "9": 2,
+      "10": 10,
+      "11": 10,
+      "12": 10,
+      "13": 10
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 1
+      "0": 10,
+      "1": 10,
+      "2": 24,
+      "3": 14,
+      "4": 3,
+      "5": 5,
+      "6": 4,
+      "7": 2,
+      "8": 2,
+      "9": 10
     },
     "b": {
       "0": [
-        1,
-        1
+        10,
+        10
       ]
     },
     "inputSourceMap": {
       "version": 3,
-      "mappings": ";;AAQA,WAAaA,iBAAb;EAAM,MAAOA,iBAAP,CAAwB;IAI5BC,YAAoBC,UAApB,EAA0C;MAAtB;MAFZ,mBAAc,aAAd;IAGP;;IAEMC,GAAG;MACR,OAAO,KAAKD,UAAL,CAAgBE,GAAhB,CAA+B,KAAKC,WAApC,CAAP;IACD;;IAEMC,MAAM,CAACC,EAAD,EAAW;MACtB,OAAO,KAAKL,UAAL,CAAgBE,GAAhB,CAA6B,GAAG,KAAKC,WAAW,IAAIE,EAAE,EAAtD,CAAP;IACD;;IAEMC,MAAM,CAACD,EAAD,EAAW;MACtB,OAAO,KAAKL,UAAL,CAAgBM,MAAhB,CAAuB,GAAG,KAAKH,WAAW,IAAIE,EAAE,EAAhD,CAAP;IACD;;IAEME,MAAM,CAACC,OAAD,EAAiB;MAC5B,OAAO,KAAKR,UAAL,CAAgBS,IAAhB,CAA8B,KAAKN,WAAnC,EAAgDK,OAAhD,CAAP;IACD;;IAEME,MAAM,CAACL,EAAD,EAAaG,OAAb,EAA6B;MACxC,OAAO,KAAKR,UAAL,CAAgBW,GAAhB,CAA6B,GAAG,KAAKR,WAAW,IAAIE,EAAE,EAAtD,EAA0DG,OAA1D,CAAP;IACD;;IAEMI,WAAW,CAACP,EAAD,EAAaQ,MAAb,EAA2B;MAC3C,OAAO,KAAKb,UAAL,CAAgBS,IAAhB,CAA2B,GAAG,KAAKN,WAAW,IAAIE,EAAE,gBAAgBQ,MAAM,EAA1E,EAA8E,IAA9E,CAAP;IACD;;IAEMC,aAAa,CAACT,EAAD,EAAaQ,MAAb,EAA2B;MAC7C,OAAO,KAAKb,UAAL,CAAgBM,MAAhB,CAA6B,GAAG,KAAKH,WAAW,IAAIE,EAAE,gBAAgBQ,MAAM,EAA5E,CAAP;IACD;;EAjC2B;;;qBAAjBf,mBAAiBiB;EAAA;;;WAAjBjB;IAAiBkB,SAAjBlB,iBAAiB;IAAAmB,YAFhB;;EAEd,OAAanB,iBAAb;AAAA",
+      "mappings": ";;AAQE,WAAaA,iBAAb;EAAM,MAAOA,iBAAP,CAAwB;IAI5BC,YAAoBC,UAApB,EAA0C;MAAtB;MAFZ,mBAAc,aAAd;IAGP;;IAEMC,GAAG;MACR,OAAO,KAAKD,UAAL,CAAgBE,GAAhB,CAA+B,mCAA/B,CAAP;IACD;;IAEMC,MAAM,CAACC,EAAD,EAAW;MACtB,OAAO,KAAKJ,UAAL,CAAgBE,GAAhB,CAA6B,qCAAqCE,EAAE,EAApE,CAAP;IACD;;IAEMC,MAAM,CAACD,EAAD,EAAW;MACtB,OAAO,KAAKJ,UAAL,CAAgBK,MAAhB,CAAuB,qCAAqCD,EAAE,EAA9D,CAAP;IACD;;IAEME,MAAM,CAACC,OAAD,EAAiB;MAC5B,OAAO,KAAKP,UAAL,CAAgBQ,IAAhB,CAA8B,mCAA9B,EAAmED,OAAnE,CAAP;IACD;;IAEME,MAAM,CAACL,EAAD,EAAaG,OAAb,EAA6B;MACxC,OAAO,KAAKP,UAAL,CAAgBU,GAAhB,CAA6B,qCAAqCN,EAAE,EAApE,EAAwEG,OAAxE,CAAP;IACD;;IAEMI,WAAW,CAACP,EAAD,EAAaQ,MAAb,EAA2B;MAC3C,OAAO,KAAKZ,UAAL,CAAgBQ,IAAhB,CAA2B,qCAAqCJ,EAAE,gBAAgBQ,MAAM,EAAxF,EAA4F,IAA5F,CAAP;IACD;;IAEMC,aAAa,CAACT,EAAD,EAAaQ,MAAb,EAA2B;MAC7C,OAAO,KAAKZ,UAAL,CAAgBK,MAAhB,CAA6B,qCAAqCD,EAAE,gBAAgBQ,MAAM,EAA1F,CAAP;IACD;;EAjC2B;;;qBAAjBd,mBAAiBgB;EAAA;;;WAAjBhB;IAAiBiB,SAAjBjB,iBAAiB;IAAAkB,YAFhB;;EAEd,OAAalB,iBAAb;AAAA",
       "names": [
         "SessionApiService",
         "constructor",
         "httpClient",
         "all",
         "get",
-        "pathService",
         "detail",
         "id",
         "delete",
@@ -8857,11 +8843,11 @@
         "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\features\\sessions\\services\\session-api.service.ts"
       ],
       "sourcesContent": [
-        "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { Session } from '../interfaces/session.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class SessionApiService {\r\n\r\n  private pathService = 'api/session';\r\n\r\n  constructor(private httpClient: HttpClient) {\r\n  }\r\n\r\n  public all(): Observable<Session[]> {\r\n    return this.httpClient.get<Session[]>(this.pathService);\r\n  }\r\n\r\n  public detail(id: string): Observable<Session> {\r\n    return this.httpClient.get<Session>(`${this.pathService}/${id}`);\r\n  }\r\n\r\n  public delete(id: string): Observable<any> {\r\n    return this.httpClient.delete(`${this.pathService}/${id}`);\r\n  }\r\n\r\n  public create(session: Session): Observable<Session> {\r\n    return this.httpClient.post<Session>(this.pathService, session);\r\n  }\r\n\r\n  public update(id: string, session: Session): Observable<Session> {\r\n    return this.httpClient.put<Session>(`${this.pathService}/${id}`, session);\r\n  }\r\n\r\n  public participate(id: string, userId: string): Observable<void> {\r\n    return this.httpClient.post<void>(`${this.pathService}/${id}/participate/${userId}`, null);\r\n  }\r\n\r\n  public unParticipate(id: string, userId: string): Observable<void> {\r\n    return this.httpClient.delete<void>(`${this.pathService}/${id}/participate/${userId}`);\r\n  }\r\n\r\n}\r\n"
+        "  import { HttpClient } from '@angular/common/http';\r\n  import { Injectable } from '@angular/core';\r\n  import { Observable } from 'rxjs';\r\n  import { Session } from '../interfaces/session.interface';\r\n\r\n  @Injectable({\r\n    providedIn: 'root'\r\n  })\r\n  export class SessionApiService {\r\n\r\n    private pathService = 'api/session';\r\n\r\n    constructor(private httpClient: HttpClient) {\r\n    }\r\n\r\n    public all(): Observable<Session[]> {\r\n      return this.httpClient.get<Session[]>(\"http://localhost:8080/api/session\");\r\n    }\r\n\r\n    public detail(id: string): Observable<Session> {\r\n      return this.httpClient.get<Session>(`http://localhost:8080/api/session/${id}`);\r\n    }\r\n\r\n    public delete(id: string): Observable<any> {\r\n      return this.httpClient.delete(`http://localhost:8080/api/session/${id}`);\r\n    }\r\n\r\n    public create(session: Session): Observable<Session> {\r\n      return this.httpClient.post<Session>(\"http://localhost:8080/api/session\", session);\r\n    }\r\n\r\n    public update(id: string, session: Session): Observable<Session> {\r\n      return this.httpClient.put<Session>(`http://localhost:8080/api/session/${id}`, session);\r\n    }\r\n\r\n    public participate(id: string, userId: string): Observable<void> {\r\n      return this.httpClient.post<void>(`http://localhost:8080/api/session/${id}/participate/${userId}`, null);\r\n    }\r\n\r\n    public unParticipate(id: string, userId: string): Observable<void> {\r\n      return this.httpClient.delete<void>(`http://localhost:8080/api/session/${id}/participate/${userId}`);\r\n    }\r\n\r\n  }\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "f9f4218f0d68a155677fb708e5191eabefd8616a"
+    "hash": "a6e78ba90a33bc2d4f59386adad8ed7a07929108"
   },
   "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\services\\teacher.service.ts": {
     "path": "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\services\\teacher.service.ts",
@@ -8903,7 +8889,7 @@
         },
         "end": {
           "line": 11,
-          "column": 51
+          "column": 70
         }
       },
       "4": {
@@ -8913,7 +8899,7 @@
         },
         "end": {
           "line": 15,
-          "column": 62
+          "column": 76
         }
       },
       "5": {
@@ -9118,39 +9104,38 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 1,
-      "6": 0,
-      "7": 1,
-      "8": 1
+      "0": 10,
+      "1": 8,
+      "2": 8,
+      "3": 9,
+      "4": 10,
+      "5": 10,
+      "6": 8,
+      "7": 10,
+      "8": 10
     },
     "f": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0
+      "0": 10,
+      "1": 8,
+      "2": 9,
+      "3": 10,
+      "4": 8
     },
     "b": {
       "0": [
-        0,
-        0
+        8,
+        8
       ]
     },
     "inputSourceMap": {
       "version": 3,
-      "mappings": ";;AAQA,WAAaA,cAAb;EAAM,MAAOA,cAAP,CAAqB;IAIzBC,YAAoBC,UAApB,EAA0C;MAAtB;MAFZ,mBAAc,aAAd;IAEuC;;IAExCC,GAAG;MACR,OAAO,KAAKD,UAAL,CAAgBE,GAAhB,CAA+B,KAAKC,WAApC,CAAP;IACD;;IAEMC,MAAM,CAACC,EAAD,EAAW;MACtB,OAAO,KAAKL,UAAL,CAAgBE,GAAhB,CAA6B,GAAG,KAAKC,WAAW,IAAIE,EAAE,EAAtD,CAAP;IACD;;EAZwB;;;qBAAdP,gBAAcQ;EAAA;;;WAAdR;IAAcS,SAAdT,cAAc;IAAAU,YAFb;;EAEd,OAAaV,cAAb;AAAA",
+      "mappings": ";;AAQA,WAAaA,cAAb;EAAM,MAAOA,cAAP,CAAqB;IAIzBC,YAAoBC,UAApB,EAA0C;MAAtB;MAFZ,mBAAc,aAAd;IAEuC;;IAExCC,GAAG;MACR,OAAO,KAAKD,UAAL,CAAgBE,GAAhB,CAA+B,mCAA/B,CAAP;IACD;;IAEMC,MAAM,CAACC,EAAD,EAAW;MACtB,OAAO,KAAKJ,UAAL,CAAgBE,GAAhB,CAA6B,qCAAqCE,EAAE,EAApE,CAAP;IACD;;EAZwB;;;qBAAdN,gBAAcO;EAAA;;;WAAdP;IAAcQ,SAAdR,cAAc;IAAAS,YAFb;;EAEd,OAAaT,cAAb;AAAA",
       "names": [
         "TeacherService",
         "constructor",
         "httpClient",
         "all",
         "get",
-        "pathService",
         "detail",
         "id",
         "i0",
@@ -9162,11 +9147,11 @@
         "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\services\\teacher.service.ts"
       ],
       "sourcesContent": [
-        "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { Teacher } from '../interfaces/teacher.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class TeacherService {\r\n\r\n  private pathService = 'api/teacher';\r\n\r\n  constructor(private httpClient: HttpClient) { }\r\n\r\n  public all(): Observable<Teacher[]> {\r\n    return this.httpClient.get<Teacher[]>(this.pathService);\r\n  }\r\n\r\n  public detail(id: string): Observable<Teacher> {\r\n    return this.httpClient.get<Teacher>(`${this.pathService}/${id}`);\r\n  }\r\n}\r\n"
+        "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { Teacher } from '../interfaces/teacher.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class TeacherService {\r\n\r\n  private pathService = 'api/teacher';\r\n\r\n  constructor(private httpClient: HttpClient) { }\r\n\r\n  public all(): Observable<Teacher[]> {\r\n    return this.httpClient.get<Teacher[]>(\"http://localhost:8080/api/teacher\");\r\n  }\r\n\r\n  public detail(id: string): Observable<Teacher> {\r\n    return this.httpClient.get<Teacher>(`http://localhost:8080/api/teacher/${id}`);\r\n  }\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "871f4e3c85ba781bd6ab557eb1cbbdc1e0763967"
+    "hash": "15183b996be4fc2d8f37c125c6eeec1e717a493c"
   },
   "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\features\\sessions\\components\\detail\\detail.component.ts": {
     "path": "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\features\\sessions\\components\\detail\\detail.component.ts",
@@ -9598,7 +9583,7 @@
         },
         "end": {
           "line": 75,
-          "column": 93
+          "column": 94
         }
       },
       "43": {
@@ -11973,257 +11958,257 @@
       }
     },
     "s": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 0,
-      "49": 0,
-      "50": 0,
-      "51": 0,
-      "52": 0,
-      "53": 0,
-      "54": 0,
-      "55": 0,
-      "56": 0,
-      "57": 0,
-      "58": 0,
-      "59": 0,
-      "60": 0,
-      "61": 0,
-      "62": 0,
-      "63": 0,
-      "64": 0,
-      "65": 0,
-      "66": 0,
-      "67": 0,
-      "68": 0,
-      "69": 0,
-      "70": 0,
-      "71": 0,
-      "72": 0,
-      "73": 0,
-      "74": 0,
-      "75": 0,
-      "76": 0,
-      "77": 0,
-      "78": 0,
-      "79": 0,
-      "80": 0,
-      "81": 0,
-      "82": 0,
-      "83": 0,
-      "84": 0,
-      "85": 0,
-      "86": 0,
-      "87": 0,
-      "88": 0,
-      "89": 0,
-      "90": 0,
-      "91": 0,
-      "92": 0,
-      "93": 0,
-      "94": 0,
-      "95": 0,
-      "96": 0,
-      "97": 0,
-      "98": 0,
-      "99": 0,
-      "100": 0,
-      "101": 0,
-      "102": 0,
-      "103": 0,
-      "104": 0,
-      "105": 0,
-      "106": 0,
-      "107": 0,
-      "108": 0,
-      "109": 0,
-      "110": 0,
-      "111": 0,
-      "112": 0,
-      "113": 0,
-      "114": 0,
-      "115": 0,
-      "116": 0,
-      "117": 0,
-      "118": 0,
-      "119": 0,
-      "120": 0,
-      "121": 0,
-      "122": 0,
-      "123": 0,
-      "124": 0,
-      "125": 0,
-      "126": 0,
-      "127": 0,
-      "128": 0,
-      "129": 0,
-      "130": 0,
-      "131": 0,
-      "132": 0,
-      "133": 0,
-      "134": 0,
-      "135": 1,
-      "136": 0,
-      "137": 0,
-      "138": 0,
-      "139": 0,
-      "140": 0,
-      "141": 0,
-      "142": 0,
-      "143": 0,
-      "144": 0,
-      "145": 0,
-      "146": 0,
-      "147": 0,
-      "148": 0,
-      "149": 0,
-      "150": 0,
-      "151": 0,
-      "152": 0,
-      "153": 0,
-      "154": 0,
-      "155": 0,
-      "156": 0,
-      "157": 0,
-      "158": 0,
-      "159": 0,
-      "160": 0,
-      "161": 0,
-      "162": 0,
-      "163": 1,
-      "164": 0,
-      "165": 1,
-      "166": 0,
-      "167": 0,
-      "168": 0,
-      "169": 0,
-      "170": 0,
-      "171": 0,
-      "172": 0,
-      "173": 1
+      "0": 33,
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "4": 3,
+      "5": 3,
+      "6": 3,
+      "7": 3,
+      "8": 3,
+      "9": 3,
+      "10": 3,
+      "11": 3,
+      "12": 3,
+      "13": 57,
+      "14": 5,
+      "15": 5,
+      "16": 5,
+      "17": 2,
+      "18": 2,
+      "19": 2,
+      "20": 5,
+      "21": 5,
+      "22": 5,
+      "23": 5,
+      "24": 5,
+      "25": 5,
+      "26": 32,
+      "27": 2,
+      "28": 2,
+      "29": 2,
+      "30": 2,
+      "31": 2,
+      "32": 2,
+      "33": 2,
+      "34": 2,
+      "35": 2,
+      "36": 2,
+      "37": 2,
+      "38": 2,
+      "39": 85,
+      "40": 3,
+      "41": 3,
+      "42": 3,
+      "43": 3,
+      "44": 85,
+      "45": 82,
+      "46": 82,
+      "47": 82,
+      "48": 82,
+      "49": 82,
+      "50": 88,
+      "51": 6,
+      "52": 6,
+      "53": 6,
+      "54": 6,
+      "55": 6,
+      "56": 6,
+      "57": 6,
+      "58": 88,
+      "59": 82,
+      "60": 82,
+      "61": 82,
+      "62": 118,
+      "63": 6,
+      "64": 6,
+      "65": 6,
+      "66": 2,
+      "67": 2,
+      "68": 2,
+      "69": 6,
+      "70": 6,
+      "71": 6,
+      "72": 6,
+      "73": 6,
+      "74": 6,
+      "75": 6,
+      "76": 6,
+      "77": 6,
+      "78": 6,
+      "79": 6,
+      "80": 6,
+      "81": 6,
+      "82": 6,
+      "83": 6,
+      "84": 6,
+      "85": 6,
+      "86": 6,
+      "87": 6,
+      "88": 6,
+      "89": 6,
+      "90": 6,
+      "91": 6,
+      "92": 6,
+      "93": 6,
+      "94": 6,
+      "95": 6,
+      "96": 6,
+      "97": 6,
+      "98": 6,
+      "99": 6,
+      "100": 6,
+      "101": 6,
+      "102": 6,
+      "103": 6,
+      "104": 6,
+      "105": 6,
+      "106": 6,
+      "107": 6,
+      "108": 6,
+      "109": 6,
+      "110": 6,
+      "111": 6,
+      "112": 6,
+      "113": 6,
+      "114": 6,
+      "115": 118,
+      "116": 112,
+      "117": 112,
+      "118": 112,
+      "119": 112,
+      "120": 112,
+      "121": 112,
+      "122": 112,
+      "123": 112,
+      "124": 112,
+      "125": 112,
+      "126": 112,
+      "127": 112,
+      "128": 112,
+      "129": 112,
+      "130": 112,
+      "131": 112,
+      "132": 112,
+      "133": 112,
+      "134": 112,
+      "135": 10,
+      "136": 6,
+      "137": 6,
+      "138": 6,
+      "139": 6,
+      "140": 6,
+      "141": 6,
+      "142": 6,
+      "143": 6,
+      "144": 6,
+      "145": 6,
+      "146": 6,
+      "147": 6,
+      "148": 6,
+      "149": 2,
+      "150": 3,
+      "151": 3,
+      "152": 3,
+      "153": 2,
+      "154": 2,
+      "155": 2,
+      "156": 2,
+      "157": 10,
+      "158": 10,
+      "159": 10,
+      "160": 2,
+      "161": 10,
+      "162": 10,
+      "163": 10,
+      "164": 6,
+      "165": 10,
+      "166": 151,
+      "167": 6,
+      "168": 6,
+      "169": 6,
+      "170": 151,
+      "171": 145,
+      "172": 145,
+      "173": 10
     },
     "f": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 1,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0
+      "0": 33,
+      "1": 3,
+      "2": 57,
+      "3": 2,
+      "4": 32,
+      "5": 2,
+      "6": 85,
+      "7": 88,
+      "8": 118,
+      "9": 2,
+      "10": 10,
+      "11": 6,
+      "12": 6,
+      "13": 2,
+      "14": 3,
+      "15": 3,
+      "16": 2,
+      "17": 2,
+      "18": 2,
+      "19": 2,
+      "20": 10,
+      "21": 10,
+      "22": 2,
+      "23": 10,
+      "24": 6,
+      "25": 151
     },
     "b": {
       "0": [
-        0,
-        0
+        3,
+        30
       ],
       "1": [
-        0,
-        0
+        5,
+        52
       ],
       "2": [
-        0,
-        0
+        2,
+        30
       ],
       "3": [
-        0,
-        0
+        3,
+        82
       ],
       "4": [
-        0,
-        0
+        82,
+        3
       ],
       "5": [
-        0,
-        0
+        6,
+        82
       ],
       "6": [
-        0,
-        0
+        82,
+        6
       ],
       "7": [
-        0,
-        0
+        6,
+        112
       ],
       "8": [
-        0,
-        0
+        112,
+        6
       ],
       "9": [
-        0,
-        0
+        6,
+        6
       ],
       "10": [
-        0,
-        0
+        6,
+        145
       ],
       "11": [
-        0,
-        0
+        145,
+        6
       ]
     },
     "inputSourceMap": {
@@ -12283,12 +12268,12 @@
         "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\features\\sessions\\components\\detail\\detail.component.ts"
       ],
       "sourcesContent": [
-        "<div class=\"m3\">\r\n  <mat-card *ngIf=\"session\">\r\n    <mat-card-title>\r\n      <div fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n          <button mat-icon-button (click)=\"back()\">\r\n            <mat-icon>arrow_back</mat-icon>\r\n          </button>\r\n          <h1>{{session.name | titlecase}}</h1>\r\n        </div>\r\n        <div>\r\n          <button *ngIf=\"isAdmin\" mat-raised-button color=\"warn\" (click)=\"delete()\">\r\n            <mat-icon>delete</mat-icon>\r\n            <span class=\"ml1\">Delete</span>\r\n          </button>\r\n          <div *ngIf=\"!isAdmin\">\r\n            <button *ngIf=\"!isParticipate\" mat-raised-button color=\"primary\" (click)=\"participate()\">\r\n              <mat-icon>person_add</mat-icon>\r\n              <span class=\"ml1\">Participate</span>\r\n            </button>\r\n            <button *ngIf=\"isParticipate\" mat-raised-button color=\"warn\" (click)=\"unParticipate()\">\r\n              <mat-icon>person_remove</mat-icon>\r\n              <span class=\"ml1\">Do not participate</span>\r\n            </button>\r\n\r\n          </div>\r\n\r\n\r\n        </div>\r\n      </div>\r\n    </mat-card-title>\r\n    <mat-card-subtitle *ngIf=\"teacher\">\r\n      <div fxLayoutAlign=\"start center\" class=\"ml3\">\r\n        <mat-icon>\r\n          people\r\n        </mat-icon>\r\n        <span class=\"ml1\">{{ teacher.firstName }} {{ teacher.lastName | uppercase }}</span>\r\n      </div>\r\n    </mat-card-subtitle>\r\n    <div mat-card-image fxLayoutAlign=\"center center\">\r\n      <img class=\"picture\" src=\"assets/sessions.png\" alt=\"Yoga session\">\r\n    </div>\r\n    <mat-card-content>\r\n      <div class=\"my2\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n        <div fxLayoutAlign=\"start center\">\r\n          <mat-icon>\r\n            group\r\n          </mat-icon>\r\n          <span class=\"ml1\">{{ session.users.length }} attendees</span>\r\n        </div>\r\n        <div fxLayoutAlign=\"start center\">\r\n          <mat-icon>\r\n            calendar_month\r\n          </mat-icon>\r\n          <span class=\"ml1\">{{ session.date | date: 'longDate'}}</span>\r\n        </div>\r\n      </div>\r\n      <div class=\"description\">\r\n        <p>Description:</p>\r\n        {{ session.description }}\r\n        <br>\r\n      </div>\r\n      <div class=\"date\" class=\"my2\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n        <div class=\"created\"><i>Create at: </i> {{ session.createdAt| date: 'longDate'}}</div>\r\n        <div class=\"updated\"><i>Last update: </i> {{ session.updatedAt| date: 'longDate'}}</div>\r\n      </div>\r\n    </mat-card-content>\r\n  </mat-card>\r\n</div>\r\n",
+        "<div class=\"m3\">\r\n  <mat-card *ngIf=\"session\">\r\n    <mat-card-title>\r\n      <div fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n          <button mat-icon-button (click)=\"back()\">\r\n            <mat-icon>arrow_back</mat-icon>\r\n          </button>\r\n          <h1>{{session.name | titlecase}}</h1>\r\n        </div>\r\n        <div>\r\n          <button *ngIf=\"isAdmin\" mat-raised-button color=\"warn\" (click)=\"delete()\" class=\"details_delete_button\">\r\n            <mat-icon>delete</mat-icon>\r\n            <span class=\"ml1\">Delete</span>\r\n          </button>\r\n          <div *ngIf=\"!isAdmin\">\r\n            <button *ngIf=\"!isParticipate\" mat-raised-button color=\"primary\" (click)=\"participate()\" class=\"details_add_participation-button\">\r\n              <mat-icon>person_add</mat-icon>\r\n              <span class=\"ml1\">Participate</span>\r\n            </button>\r\n            <button *ngIf=\"isParticipate\" mat-raised-button color=\"warn\" (click)=\"unParticipate()\" class=\"details_remove_participation-button\">\r\n              <mat-icon>person_remove</mat-icon>\r\n              <span class=\"ml1\">Do not participate</span>\r\n            </button>\r\n\r\n          </div>\r\n\r\n\r\n        </div>\r\n      </div>\r\n    </mat-card-title>\r\n    <mat-card-subtitle *ngIf=\"teacher\">\r\n      <div fxLayoutAlign=\"start center\" class=\"ml3\">\r\n        <mat-icon>\r\n          people\r\n        </mat-icon>\r\n        <span class=\"ml1\">{{ teacher.firstName }} {{ teacher.lastName | uppercase }}</span>\r\n      </div>\r\n    </mat-card-subtitle>\r\n    <div mat-card-image fxLayoutAlign=\"center center\">\r\n      <img class=\"picture\" src=\"assets/sessions.png\" alt=\"Yoga session\">\r\n    </div>\r\n    <mat-card-content>\r\n      <div class=\"my2\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n        <div fxLayoutAlign=\"start center\">\r\n          <mat-icon>\r\n            group\r\n          </mat-icon>\r\n          <span class=\"ml1\">{{ session.users.length }} attendees</span>\r\n        </div>\r\n        <div fxLayoutAlign=\"start center\">\r\n          <mat-icon>\r\n            calendar_month\r\n          </mat-icon>\r\n          <span class=\"ml1\">{{ session.date | date: 'longDate'}}</span>\r\n        </div>\r\n      </div>\r\n      <div class=\"description\">\r\n        <p>Description:</p>\r\n        {{ session.description }}\r\n        <br>\r\n      </div>\r\n      <div class=\"date\" class=\"my2\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n        <div class=\"created\"><i>Create at: </i> {{ session.createdAt| date: 'longDate'}}</div>\r\n        <div class=\"updated\"><i>Last update: </i> {{ session.updatedAt| date: 'longDate'}}</div>\r\n      </div>\r\n    </mat-card-content>\r\n  </mat-card>\r\n</div>\r\n",
         "import { Component, OnInit } from '@angular/core';\r\nimport { FormBuilder } from '@angular/forms';\r\nimport { MatSnackBar } from '@angular/material/snack-bar';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { Teacher } from '../../../../interfaces/teacher.interface';\r\nimport { SessionService } from '../../../../services/session.service';\r\nimport { TeacherService } from '../../../../services/teacher.service';\r\nimport { Session } from '../../interfaces/session.interface';\r\nimport { SessionApiService } from '../../services/session-api.service';\r\n\r\n@Component({\r\n  selector: 'app-detail',\r\n  templateUrl: './detail.component.html',\r\n  styleUrls: ['./detail.component.scss']\r\n})\r\nexport class DetailComponent implements OnInit {\r\n  public session: Session | undefined;\r\n  public teacher: Teacher | undefined;\r\n\r\n  public isParticipate = false;\r\n  public isAdmin = false;\r\n\r\n  public sessionId: string;\r\n  public userId: string;\r\n\r\n  constructor(\r\n    private route: ActivatedRoute,\r\n    private fb: FormBuilder,\r\n    private sessionService: SessionService,\r\n    private sessionApiService: SessionApiService,\r\n    private teacherService: TeacherService,\r\n    private matSnackBar: MatSnackBar,\r\n    private router: Router) {\r\n    this.sessionId = this.route.snapshot.paramMap.get('id')!;\r\n    this.isAdmin = this.sessionService.sessionInformation!.admin;\r\n    this.userId = this.sessionService.sessionInformation!.id.toString();\r\n  }\r\n\r\n  public ngOnInit(): void {\r\n    this.fetchSession();\r\n  }\r\n\r\n  public back() {\r\n    window.history.back();\r\n  }\r\n\r\n  public delete(): void {\r\n    this.sessionApiService\r\n      .delete(this.sessionId)\r\n      .subscribe((_: any) => {\r\n          this.matSnackBar.open('Session deleted !', 'Close', { duration: 3000 });\r\n          this.router.navigate(['sessions']);\r\n        }\r\n      );\r\n  }\r\n\r\n  public participate(): void {\r\n    this.sessionApiService.participate(this.sessionId, this.userId).subscribe(_ => this.fetchSession());\r\n  }\r\n\r\n  public unParticipate(): void {\r\n    this.sessionApiService.unParticipate(this.sessionId, this.userId).subscribe(_ => this.fetchSession());\r\n  }\r\n\r\n  private fetchSession(): void {\r\n    this.sessionApiService\r\n      .detail(this.sessionId)\r\n      .subscribe((session: Session) => {\r\n        this.session = session;\r\n        this.isParticipate = session.users.some(u => u === this.sessionService.sessionInformation!.id);\r\n        this.teacherService\r\n          .detail(session.teacher_id.toString())\r\n          .subscribe((teacher: Teacher) => this.teacher = teacher);\r\n      });\r\n  }\r\n\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "e856eeaf371740503d2713ff552dd8038b1e82d4"
+    "hash": "819ed224a006fdd68b25f8c2d5a897de7ee3083a"
   },
   "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\features\\sessions\\components\\form\\form.component.ts": {
     "path": "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\features\\sessions\\components\\form\\form.component.ts",
@@ -12310,7 +12295,7 @@
         },
         "end": {
           "line": 21,
-          "column": 31
+          "column": 34
         }
       },
       "2": {
@@ -12350,7 +12335,7 @@
         },
         "end": {
           "line": 29,
-          "column": 31
+          "column": 34
         }
       },
       "6": {
@@ -12570,7 +12555,7 @@
         },
         "end": {
           "line": 63,
-          "column": 32
+          "column": 33
         }
       },
       "28": {
@@ -12590,7 +12575,7 @@
         },
         "end": {
           "line": 65,
-          "column": 62
+          "column": 63
         }
       },
       "30": {
@@ -12620,7 +12605,7 @@
         },
         "end": {
           "line": 68,
-          "column": 32
+          "column": 33
         }
       },
       "33": {
@@ -12640,7 +12625,7 @@
         },
         "end": {
           "line": 70,
-          "column": 64
+          "column": 65
         }
       },
       "35": {
@@ -12710,7 +12695,7 @@
         },
         "end": {
           "line": 77,
-          "column": 64
+          "column": 65
         }
       },
       "42": {
@@ -14309,199 +14294,199 @@
       }
     },
     "s": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 0,
-      "49": 0,
-      "50": 0,
-      "51": 0,
-      "52": 0,
-      "53": 0,
-      "54": 0,
-      "55": 0,
-      "56": 0,
-      "57": 1,
-      "58": 0,
-      "59": 0,
-      "60": 0,
-      "61": 0,
-      "62": 0,
-      "63": 0,
-      "64": 0,
-      "65": 0,
-      "66": 0,
-      "67": 0,
+      "0": 360,
+      "1": 5,
+      "2": 5,
+      "3": 5,
+      "4": 356,
+      "5": 4,
+      "6": 4,
+      "7": 4,
+      "8": 1276,
+      "9": 18,
+      "10": 18,
+      "11": 18,
+      "12": 1276,
+      "13": 1258,
+      "14": 1258,
+      "15": 1258,
+      "16": 1258,
+      "17": 692,
+      "18": 9,
+      "19": 9,
+      "20": 9,
+      "21": 9,
+      "22": 9,
+      "23": 9,
+      "24": 9,
+      "25": 9,
+      "26": 9,
+      "27": 9,
+      "28": 9,
+      "29": 9,
+      "30": 9,
+      "31": 9,
+      "32": 9,
+      "33": 9,
+      "34": 9,
+      "35": 9,
+      "36": 9,
+      "37": 9,
+      "38": 9,
+      "39": 9,
+      "40": 9,
+      "41": 9,
+      "42": 9,
+      "43": 9,
+      "44": 9,
+      "45": 9,
+      "46": 9,
+      "47": 9,
+      "48": 9,
+      "49": 692,
+      "50": 683,
+      "51": 683,
+      "52": 683,
+      "53": 683,
+      "54": 683,
+      "55": 683,
+      "56": 683,
+      "57": 10,
+      "58": 9,
+      "59": 9,
+      "60": 9,
+      "61": 9,
+      "62": 9,
+      "63": 9,
+      "64": 9,
+      "65": 9,
+      "66": 9,
+      "67": 9,
       "68": 0,
-      "69": 0,
-      "70": 0,
-      "71": 0,
-      "72": 0,
-      "73": 0,
-      "74": 0,
-      "75": 0,
-      "76": 0,
-      "77": 0,
-      "78": 0,
-      "79": 0,
-      "80": 0,
-      "81": 0,
-      "82": 0,
-      "83": 0,
-      "84": 0,
-      "85": 1,
-      "86": 0,
-      "87": 1,
-      "88": 0,
-      "89": 0,
-      "90": 0,
-      "91": 0,
-      "92": 0,
-      "93": 0,
-      "94": 0,
-      "95": 0,
-      "96": 0,
-      "97": 0,
-      "98": 0,
-      "99": 0,
-      "100": 0,
-      "101": 0,
-      "102": 0,
-      "103": 0,
-      "104": 1
+      "69": 9,
+      "70": 9,
+      "71": 4,
+      "72": 4,
+      "73": 4,
+      "74": 4,
+      "75": 5,
+      "76": 9,
+      "77": 9,
+      "78": 5,
+      "79": 5,
+      "80": 4,
+      "81": 4,
+      "82": 9,
+      "83": 9,
+      "84": 9,
+      "85": 10,
+      "86": 9,
+      "87": 10,
+      "88": 716,
+      "89": 9,
+      "90": 9,
+      "91": 9,
+      "92": 9,
+      "93": 9,
+      "94": 9,
+      "95": 9,
+      "96": 9,
+      "97": 716,
+      "98": 707,
+      "99": 707,
+      "100": 707,
+      "101": 707,
+      "102": 707,
+      "103": 707,
+      "104": 10
     },
     "f": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 1,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0
+      "0": 360,
+      "1": 356,
+      "2": 1276,
+      "3": 692,
+      "4": 9,
+      "5": 10,
+      "6": 9,
+      "7": 9,
+      "8": 4,
+      "9": 9,
+      "10": 5,
+      "11": 4,
+      "12": 9,
+      "13": 9,
+      "14": 9,
+      "15": 716
     },
     "b": {
       "0": [
-        0,
-        0
+        5,
+        355
       ],
       "1": [
-        0,
-        0
+        4,
+        352
       ],
       "2": [
-        0,
-        0
+        18,
+        1258
       ],
       "3": [
-        0,
-        0
+        1258,
+        18
       ],
       "4": [
-        0,
-        0
+        9,
+        683
       ],
       "5": [
-        0,
-        0
+        683,
+        9
       ],
       "6": [
         0,
-        0
+        9
       ],
       "7": [
-        0,
-        0
+        4,
+        5
       ],
       "8": [
-        0,
-        0
+        5,
+        4
       ],
       "9": [
-        0,
-        0
+        4,
+        5
       ],
       "10": [
-        0,
-        0
+        4,
+        5
       ],
       "11": [
-        0,
-        0
+        4,
+        5
       ],
       "12": [
-        0,
-        0
+        4,
+        5
       ],
       "13": [
-        0,
-        0
+        9,
+        9
       ],
       "14": [
-        0,
-        0
+        9,
+        707
       ],
       "15": [
-        0,
-        0
+        707,
+        9
       ]
     },
     "inputSourceMap": {
       "version": 3,
-      "mappings": "AACA,SAAiCA,UAAjC,QAAmD,gBAAnD;;;;;;;;;;;;;;;;;;;;ICMQC;IAAsBA;IAAcA;;;;;;IACpCA;IAAqBA;IAAcA;;;;;;IAgB/BA;IACEA;IACFA;;;;;IAFsDA;IACpDA;IAAAA;;;;;;;;IAdVA,yCAAsC,CAAtC,EAAsC,MAAtC,EAAsC,CAAtC;IACgEA;MAAAA;MAAA;MAAA,OAAYA,+BAAZ;IAAoB,CAApB;IAC5DA,0CAAqD,CAArD,EAAqD,WAArD;IACaA;IAAIA;IACfA;IACFA;IACAA,0CAA4C,CAA5C,EAA4C,WAA5C;IACaA;IAAIA;IACfA;IACFA;IACAA,2CAAqC,EAArC,EAAqC,WAArC;IACaA;IAAOA;IAClBA;IACEA;;IAGFA;IAEFA,2CAA4C,EAA5C,EAA4C,WAA5C;IACaA;IAAWA;IACtBA;IACFA;IACAA,iCAAkD,EAAlD,EAAkD,QAAlD,EAAkD,EAAlD;IAEIA;IACFA;;;;;IAxBgCA;IAAAA;IAYEA;IAAAA;IAUsBA;IAAAA;;;;ADpBlE,WAAaC,aAAb;EAAM,MAAOA,aAAP,CAAoB;IAOxBC,YACUC,KADV,EAEUC,EAFV,EAGUC,WAHV,EAIUC,iBAJV,EAKUC,cALV,EAMUC,cANV,EAOUC,MAPV,EAOwB;MANd;MACA;MACA;MACA;MACA;MACA;MACA;MAZH,gBAAoB,KAApB;MAEA,iBAAY,KAAKD,cAAL,CAAoBE,GAApB,EAAZ;IAYN;;IAEMC,QAAQ;MACb,IAAI,CAAC,KAAKJ,cAAL,CAAoBK,kBAApB,CAAwCC,KAA7C,EAAoD;QAClD,KAAKJ,MAAL,CAAYK,QAAZ,CAAqB,CAAC,WAAD,CAArB;MACD;;MACD,MAAMC,GAAG,GAAG,KAAKN,MAAL,CAAYM,GAAxB;;MACA,IAAIA,GAAG,CAACC,QAAJ,CAAa,QAAb,CAAJ,EAA4B;QAC1B,KAAKC,QAAL,GAAgB,IAAhB;QACA,KAAKC,EAAL,GAAU,KAAKf,KAAL,CAAWgB,QAAX,CAAoBC,QAApB,CAA6BC,GAA7B,CAAiC,IAAjC,CAAV;QACA,KAAKf,iBAAL,CACGgB,MADH,CACU,KAAKJ,EADf,EAEGK,SAFH,CAEcC,OAAD,IAAsB,KAAKC,QAAL,CAAcD,OAAd,CAFnC;MAGD,CAND,MAMO;QACL,KAAKC,QAAL;MACD;IACF;;IAEMC,MAAM;MACX,MAAMF,OAAO,GAAG,KAAKG,WAAL,EAAkBC,KAAlC;;MAEA,IAAI,CAAC,KAAKX,QAAV,EAAoB;QAClB,KAAKX,iBAAL,CACGuB,MADH,CACUL,OADV,EAEGD,SAFH,CAEcO,CAAD,IAAgB,KAAKC,QAAL,CAAc,mBAAd,CAF7B;MAGD,CAJD,MAIO;QACL,KAAKzB,iBAAL,CACG0B,MADH,CACU,KAAKd,EADf,EACoBM,OADpB,EAEGD,SAFH,CAEcO,CAAD,IAAgB,KAAKC,QAAL,CAAc,mBAAd,CAF7B;MAGD;IACF;;IAEON,QAAQ,CAACD,OAAD,EAAkB;MAChC,KAAKG,WAAL,GAAmB,KAAKvB,EAAL,CAAQ6B,KAAR,CAAc;QAC/BC,IAAI,EAAE,CACJV,OAAO,GAAGA,OAAO,CAACU,IAAX,GAAkB,EADrB,EAEJ,CAACnC,UAAU,CAACoC,QAAZ,CAFI,CADyB;QAK/BC,IAAI,EAAE,CACJZ,OAAO,GAAG,IAAIa,IAAJ,CAASb,OAAO,CAACY,IAAjB,EAAuBE,WAAvB,GAAqCC,KAArC,CAA2C,GAA3C,EAAgD,CAAhD,CAAH,GAAwD,EAD3D,EAEJ,CAACxC,UAAU,CAACoC,QAAZ,CAFI,CALyB;QAS/BK,UAAU,EAAE,CACVhB,OAAO,GAAGA,OAAO,CAACgB,UAAX,GAAwB,EADrB,EAEV,CAACzC,UAAU,CAACoC,QAAZ,CAFU,CATmB;QAa/BM,WAAW,EAAE,CACXjB,OAAO,GAAGA,OAAO,CAACiB,WAAX,GAAyB,EADrB,EAEX,CACE1C,UAAU,CAACoC,QADb,EAEEpC,UAAU,CAAC2C,GAAX,CAAe,IAAf,CAFF,CAFW;MAbkB,CAAd,CAAnB;IAqBD;;IAEOX,QAAQ,CAACY,OAAD,EAAgB;MAC9B,KAAKtC,WAAL,CAAiBuC,IAAjB,CAAsBD,OAAtB,EAA+B,OAA/B,EAAwC;QAAEE,QAAQ,EAAE;MAAZ,CAAxC;MACA,KAAKpC,MAAL,CAAYK,QAAZ,CAAqB,CAAC,UAAD,CAArB;IACD;;EA3EuB;;;qBAAbb,eAAaD;EAAA;;;UAAbC;IAAa6C;IAAAC;IAAAC;IAAAC;IAAAC;MAAA;QCd1BlD,+BAAuB,CAAvB,EAAuB,UAAvB,EAAuB,CAAvB,EAAuB,gBAAvB,EAAuB,CAAvB,EAAuB,KAAvB,EAAuB,CAAvB,EAAuB,CAAvB,EAAuB,QAAvB,EAAuB,CAAvB,EAAuB,CAAvB,EAAuB,UAAvB;QAKoBA;QAAUA;QAEtBA;QACAA;QACFA;QAEFA;QA6BFA;;;;QAjCWA;QAAAA;QACAA;QAAAA;QAGUA;QAAAA;;;;;EDGvB,OAAaC,aAAb;AAAA",
+      "mappings": "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",
       "names": [
         "Validators",
         "i0",
@@ -14563,11 +14548,11 @@
       ],
       "sourcesContent": [
         "import { Component, OnInit } from '@angular/core';\r\nimport { FormBuilder, FormGroup, Validators } from '@angular/forms';\r\nimport { MatSnackBar } from '@angular/material/snack-bar';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { SessionService } from '../../../../services/session.service';\r\nimport { TeacherService } from '../../../../services/teacher.service';\r\nimport { Session } from '../../interfaces/session.interface';\r\nimport { SessionApiService } from '../../services/session-api.service';\r\n\r\n@Component({\r\n  selector: 'app-form',\r\n  templateUrl: './form.component.html',\r\n  styleUrls: ['./form.component.scss']\r\n})\r\nexport class FormComponent implements OnInit {\r\n\r\n  public onUpdate: boolean = false;\r\n  public sessionForm: FormGroup | undefined;\r\n  public teachers$ = this.teacherService.all();\r\n  private id: string | undefined;\r\n\r\n  constructor(\r\n    private route: ActivatedRoute,\r\n    private fb: FormBuilder,\r\n    private matSnackBar: MatSnackBar,\r\n    private sessionApiService: SessionApiService,\r\n    private sessionService: SessionService,\r\n    private teacherService: TeacherService,\r\n    private router: Router\r\n  ) {\r\n  }\r\n\r\n  public ngOnInit(): void {\r\n    if (!this.sessionService.sessionInformation!.admin) {\r\n      this.router.navigate(['/sessions']);\r\n    }\r\n    const url = this.router.url;\r\n    if (url.includes('update')) {\r\n      this.onUpdate = true;\r\n      this.id = this.route.snapshot.paramMap.get('id')!;\r\n      this.sessionApiService\r\n        .detail(this.id)\r\n        .subscribe((session: Session) => this.initForm(session));\r\n    } else {\r\n      this.initForm();\r\n    }\r\n  }\r\n\r\n  public submit(): void {\r\n    const session = this.sessionForm?.value as Session;\r\n\r\n    if (!this.onUpdate) {\r\n      this.sessionApiService\r\n        .create(session)\r\n        .subscribe((_: Session) => this.exitPage('Session created !'));\r\n    } else {\r\n      this.sessionApiService\r\n        .update(this.id!, session)\r\n        .subscribe((_: Session) => this.exitPage('Session updated !'));\r\n    }\r\n  }\r\n\r\n  private initForm(session?: Session): void {\r\n    this.sessionForm = this.fb.group({\r\n      name: [\r\n        session ? session.name : '',\r\n        [Validators.required]\r\n      ],\r\n      date: [\r\n        session ? new Date(session.date).toISOString().split('T')[0] : '',\r\n        [Validators.required]\r\n      ],\r\n      teacher_id: [\r\n        session ? session.teacher_id : '',\r\n        [Validators.required]\r\n      ],\r\n      description: [\r\n        session ? session.description : '',\r\n        [\r\n          Validators.required,\r\n          Validators.max(2000)\r\n        ]\r\n      ],\r\n    });\r\n  }\r\n\r\n  private exitPage(message: string): void {\r\n    this.matSnackBar.open(message, 'Close', { duration: 3000 });\r\n    this.router.navigate(['sessions']);\r\n  }\r\n}\r\n",
-        "<div class=\"create m3\">\r\n  <mat-card>\r\n    <mat-card-title>\r\n      <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n        <button mat-icon-button routerLink=\"/sessions\">\r\n          <mat-icon>arrow_back</mat-icon>\r\n        </button>\r\n        <h1 *ngIf=\"!onUpdate\">Create session</h1>\r\n        <h1 *ngIf=\"onUpdate\">Update session</h1>\r\n      </div>\r\n    </mat-card-title>\r\n    <mat-card-content *ngIf=\"sessionForm\">\r\n      <form class=\"mt2\" fxLayout=\"column\" [formGroup]=\"sessionForm\" (ngSubmit)=\"submit()\">\r\n        <mat-form-field appearance=\"outline\" class=\"\" fxFlex>\r\n          <mat-label>Name</mat-label>\r\n          <input matInput formControlName=\"name\">\r\n        </mat-form-field>\r\n        <mat-form-field appearance=\"outline\" fxFlex>\r\n          <mat-label>Date</mat-label>\r\n          <input matInput type=\"date\" formControlName=\"date\">\r\n        </mat-form-field>\r\n        <mat-form-field appearance=\"outline\">\r\n          <mat-label>Teacher</mat-label>\r\n          <mat-select ngDefaultControl formControlName=\"teacher_id\">\r\n            <mat-option *ngFor=\"let teacher of teachers$ | async\" [value]=\"teacher.id\">\r\n              {{teacher.firstName}} {{teacher.lastName}}\r\n            </mat-option>\r\n          </mat-select>\r\n        </mat-form-field>\r\n        <mat-form-field appearance=\"outline\" fxFlex>\r\n          <mat-label>Description</mat-label>\r\n          <textarea matInput rows=\"8\" formControlName=\"description\"></textarea>\r\n        </mat-form-field>\r\n        <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n          <button mat-raised-button color=\"primary\" type=\"submit\" [disabled]=\"sessionForm.invalid\">\r\n            Save\r\n          </button>\r\n        </div>\r\n      </form>\r\n    </mat-card-content>\r\n  </mat-card>\r\n</div>\r\n"
+        "<div class=\"create m3\">\r\n  <mat-card>\r\n    <mat-card-title>\r\n      <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n        <button mat-icon-button routerLink=\"/sessions\">\r\n          <mat-icon>arrow_back</mat-icon>\r\n        </button>\r\n        <h1 *ngIf=\"!onUpdate\" class=\"create-session-title\">Create session</h1>\r\n        <h1 *ngIf=\"onUpdate\" class=\"update-session-title\">Update session</h1>\r\n      </div>\r\n    </mat-card-title>\r\n    <mat-card-content *ngIf=\"sessionForm\">\r\n      <form class=\"mt2\" fxLayout=\"column\" [formGroup]=\"sessionForm\" (ngSubmit)=\"submit()\">\r\n        <mat-form-field appearance=\"outline\" class=\"\" fxFlex>\r\n          <mat-label>Name</mat-label>\r\n          <input matInput formControlName=\"name\">\r\n        </mat-form-field>\r\n        <mat-form-field appearance=\"outline\" fxFlex>\r\n          <mat-label>Date</mat-label>\r\n          <input matInput type=\"date\" formControlName=\"date\">\r\n        </mat-form-field>\r\n        <mat-form-field appearance=\"outline\">\r\n          <mat-label>Teacher</mat-label>\r\n          <mat-select ngDefaultControl formControlName=\"teacher_id\">\r\n            <mat-option *ngFor=\"let teacher of teachers$ | async\" [value]=\"teacher.id\">\r\n              {{teacher.firstName}} {{teacher.lastName}}\r\n            </mat-option>\r\n          </mat-select>\r\n        </mat-form-field>\r\n        <mat-form-field appearance=\"outline\" fxFlex>\r\n          <mat-label>Description</mat-label>\r\n          <textarea matInput rows=\"8\" formControlName=\"description\"></textarea>\r\n        </mat-form-field>\r\n        <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n          <button mat-raised-button color=\"primary\" type=\"submit\" [disabled]=\"sessionForm.invalid\">\r\n            Save\r\n          </button>\r\n        </div>\r\n      </form>\r\n    </mat-card-content>\r\n  </mat-card>\r\n</div>\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "9cb97961a613482033efcf785854e79a57f29915"
+    "hash": "e500ef2862b5a0ed61e629142fff99717a8a0c70"
   },
   "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\features\\sessions\\components\\list\\list.component.ts": {
     "path": "D:\\Projet Dev\\Projet_Open_Classrooms\\Projet_5\\Testez-une-application-full-stack\\front\\src\\app\\features\\sessions\\components\\list\\list.component.ts",
@@ -15906,131 +15891,131 @@
       }
     },
     "s": {
-      "0": 9,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 1,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 0,
-      "49": 0,
-      "50": 0,
-      "51": 0,
-      "52": 0,
-      "53": 0,
-      "54": 0,
-      "55": 0,
-      "56": 1,
-      "57": 1,
-      "58": 1,
-      "59": 1,
-      "60": 8,
-      "61": 1,
-      "62": 1,
-      "63": 1,
-      "64": 9,
-      "65": 1,
-      "66": 1,
-      "67": 1,
-      "68": 1,
-      "69": 1,
-      "70": 1,
-      "71": 1,
-      "72": 1,
-      "73": 1,
-      "74": 9,
-      "75": 8,
-      "76": 8,
-      "77": 8,
-      "78": 8,
-      "79": 1
+      "0": 159,
+      "1": 18,
+      "2": 18,
+      "3": 18,
+      "4": 18,
+      "5": 18,
+      "6": 18,
+      "7": 10,
+      "8": 27,
+      "9": 102,
+      "10": 27,
+      "11": 27,
+      "12": 27,
+      "13": 27,
+      "14": 27,
+      "15": 27,
+      "16": 102,
+      "17": 75,
+      "18": 75,
+      "19": 10,
+      "20": 33,
+      "21": 114,
+      "22": 33,
+      "23": 33,
+      "24": 33,
+      "25": 33,
+      "26": 33,
+      "27": 33,
+      "28": 33,
+      "29": 33,
+      "30": 33,
+      "31": 33,
+      "32": 33,
+      "33": 33,
+      "34": 33,
+      "35": 33,
+      "36": 33,
+      "37": 33,
+      "38": 33,
+      "39": 33,
+      "40": 33,
+      "41": 33,
+      "42": 33,
+      "43": 114,
+      "44": 81,
+      "45": 81,
+      "46": 81,
+      "47": 81,
+      "48": 81,
+      "49": 81,
+      "50": 81,
+      "51": 81,
+      "52": 81,
+      "53": 81,
+      "54": 81,
+      "55": 81,
+      "56": 10,
+      "57": 24,
+      "58": 24,
+      "59": 24,
+      "60": 262,
+      "61": 10,
+      "62": 24,
+      "63": 10,
+      "64": 205,
+      "65": 24,
+      "66": 24,
+      "67": 24,
+      "68": 24,
+      "69": 24,
+      "70": 24,
+      "71": 24,
+      "72": 24,
+      "73": 24,
+      "74": 205,
+      "75": 181,
+      "76": 181,
+      "77": 181,
+      "78": 181,
+      "79": 10
     },
     "f": {
-      "0": 9,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 1,
-      "6": 1,
-      "7": 8,
-      "8": 1,
-      "9": 9
+      "0": 159,
+      "1": 27,
+      "2": 102,
+      "3": 33,
+      "4": 114,
+      "5": 10,
+      "6": 24,
+      "7": 262,
+      "8": 24,
+      "9": 205
     },
     "b": {
       "0": [
-        1,
-        8
+        18,
+        141
       ],
       "1": [
-        0,
-        0
+        27,
+        75
       ],
       "2": [
-        0,
-        0
+        75,
+        27
       ],
       "3": [
-        0,
-        0
+        33,
+        81
       ],
       "4": [
-        0,
-        0
+        81,
+        33
       ],
       "5": [
-        1,
-        1
+        24,
+        24
       ],
       "6": [
-        1,
-        8
+        24,
+        181
       ],
       "7": [
-        8,
-        1
+        181,
+        24
       ]
     },
     "inputSourceMap": {
@@ -16227,22 +16212,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 10,
+      "1": 10,
+      "2": 10,
+      "3": 10,
+      "4": 10,
+      "5": 10,
+      "6": 10
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 10,
+      "1": 10
     },
     "b": {
       "0": [
-        1,
-        1
+        10,
+        10
       ]
     },
     "inputSourceMap": {
@@ -16444,23 +16429,23 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1
+      "0": 10,
+      "1": 10,
+      "2": 10,
+      "3": 10,
+      "4": 10,
+      "5": 10,
+      "6": 10,
+      "7": 10
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 10,
+      "1": 10
     },
     "b": {
       "0": [
-        1,
-        1
+        10,
+        10
       ]
     },
     "inputSourceMap": {

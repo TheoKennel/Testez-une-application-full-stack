@@ -13,10 +13,10 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   public getById(id: string): Observable<User> {
-    return this.httpClient.get<User>(`${this.pathService}/${id}`);
+    return this.httpClient.get<User>(`http://localhost:8080/api/user/${id}`);
   }
 
   public delete(id: string): Observable<any> {
-    return this.httpClient.delete(`${this.pathService}/${id}`);
+    return this.httpClient.delete(`http://localhost:8080/api/user/${id}`);
   }
 }

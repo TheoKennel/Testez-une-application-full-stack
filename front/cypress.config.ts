@@ -5,6 +5,8 @@ export default defineConfig({
   screenshotsFolder: 'cypress/screenshots',
   fixturesFolder: 'cypress/fixtures',
   video: false,
+  pageLoadTimeout: 5000,
+  defaultCommandTimeout : 5100,
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
@@ -13,4 +15,7 @@ export default defineConfig({
     },
     baseUrl: 'http://localhost:4200',
   },
+  env: {
+    backendUrl: 'http://localhost:8080',
+  }
 })

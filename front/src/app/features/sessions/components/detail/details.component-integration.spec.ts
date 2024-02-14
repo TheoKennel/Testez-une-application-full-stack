@@ -16,8 +16,8 @@ import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 import {of} from "rxjs";
 import {Session} from "../../interfaces/session.interface";
 import {Teacher} from "../../../../interfaces/teacher.interface";
-import {ListComponent} from "../list/list.component";
 import {SessionsRoutingModule} from "../../sessions-routing.module";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 describe('DetailsComponent Integration', () => {
   let component : DetailComponent;
@@ -25,6 +25,7 @@ describe('DetailsComponent Integration', () => {
   let httpTestingController: HttpTestingController;
   let router : Router;
   let matSnackBar : MatSnackBar;
+  let baseApiUrl = "http://localhost:8080/";
 
   const sessionInformation : SessionInformation =  {
     token :"1",
@@ -64,6 +65,7 @@ describe('DetailsComponent Integration', () => {
         MatSnackBarModule,
         ReactiveFormsModule,
         MatCardModule,
+        MatFormFieldModule,
         BrowserAnimationsModule,
         MatIconModule,
       ],
@@ -82,9 +84,8 @@ describe('DetailsComponent Integration', () => {
     component = fixture.componentInstance;
     component.sessionId = "1";
     component.ngOnInit()
-    httpTestingController.expectOne(req => req.url === `api/session/${component.sessionId}`
-                                                                    && req.method === 'GET').flush(mockSession);
-    httpTestingController.expectOne(req => req.url === `api/teacher/${mockSession.teacher_id}`
+    httpTestingController.expectOne(req => req.url === `${baseApiUrl}api/session/1` && req.method === 'GET').flush(mockSession)
+    httpTestingController.expectOne(req => req.url === `${baseApiUrl}api/teacher/${mockSession.teacher_id}`
                                                                     && req.method === 'GET').flush(mockTeacher);
     fixture.detectChanges()
   });
@@ -101,7 +102,7 @@ describe('DetailsComponent Integration', () => {
 
     deleteButton.nativeElement.click()
 
-    const req = httpTestingController.expectOne(req => req.url === `api/session/${component.sessionId}`
+    const req = httpTestingController.expectOne(req => req.url === `${baseApiUrl}api/session/${component.sessionId}`
                                                                                               && req.method === "DELETE");
     req.flush(null)
     expect(req.request.method).toEqual('DELETE')
@@ -123,7 +124,7 @@ describe('DetailsComponent Integration', () => {
 
       addButton.nativeElement.click();
 
-      const req = httpTestingController.expectOne(`api/session/1/participate/${component.userId}`)
+      const req = httpTestingController.expectOne(`${baseApiUrl}api/session/1/participate/${component.userId}`)
       req.flush(null)
       expect(req.request.method).toEqual("POST")
     })
@@ -136,7 +137,7 @@ describe('DetailsComponent Integration', () => {
 
       removeButton.nativeElement.click();
 
-      const req = httpTestingController.expectOne(req => req.url === `api/session/1/participate/${component.userId}`
+      const req = httpTestingController.expectOne(req => req.url === `${baseApiUrl}api/session/1/participate/${component.userId}`
                                                                       && req.method === 'DELETE')
       req.flush(null)
       expect(req.request.method).toEqual("DELETE")

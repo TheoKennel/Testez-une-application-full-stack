@@ -14,31 +14,31 @@
     }
 
     public all(): Observable<Session[]> {
-      return this.httpClient.get<Session[]>(this.pathService);
+      return this.httpClient.get<Session[]>("http://localhost:8080/api/session");
     }
 
     public detail(id: string): Observable<Session> {
-      return this.httpClient.get<Session>(`${this.pathService}/${id}`);
+      return this.httpClient.get<Session>(`http://localhost:8080/api/session/${id}`);
     }
 
     public delete(id: string): Observable<any> {
-      return this.httpClient.delete(`${this.pathService}/${id}`);
+      return this.httpClient.delete(`http://localhost:8080/api/session/${id}`);
     }
 
     public create(session: Session): Observable<Session> {
-      return this.httpClient.post<Session>(this.pathService, session);
+      return this.httpClient.post<Session>("http://localhost:8080/api/session", session);
     }
 
     public update(id: string, session: Session): Observable<Session> {
-      return this.httpClient.put<Session>(`${this.pathService}/${id}`, session);
+      return this.httpClient.put<Session>(`http://localhost:8080/api/session/${id}`, session);
     }
 
     public participate(id: string, userId: string): Observable<void> {
-      return this.httpClient.post<void>(`${this.pathService}/${id}/participate/${userId}`, null);
+      return this.httpClient.post<void>(`http://localhost:8080/api/session/${id}/participate/${userId}`, null);
     }
 
     public unParticipate(id: string, userId: string): Observable<void> {
-      return this.httpClient.delete<void>(`${this.pathService}/${id}/participate/${userId}`);
+      return this.httpClient.delete<void>(`http://localhost:8080/api/session/${id}/participate/${userId}`);
     }
 
   }

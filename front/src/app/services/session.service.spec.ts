@@ -6,6 +6,7 @@ import {SessionInformation} from "../interfaces/sessionInformation.interface";
 
 describe('SessionService', () => {
   let service: SessionService;
+  let baseApiUrl = "http://localhost:8080/";
   const sessionInformation = {
     token : "token",
     type : "type",

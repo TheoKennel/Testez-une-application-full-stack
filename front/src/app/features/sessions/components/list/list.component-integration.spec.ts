@@ -30,6 +30,8 @@ describe("ListComponent Integration", () => {
     admin : true
   };
 
+  let baseApiUrl = "http://localhost:8080/";
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ListComponent],
@@ -59,7 +61,7 @@ describe("ListComponent Integration", () => {
       { name: 'Session 2', date: new Date(), description: 'Description 2', teacher_id: 2, users: [] }
     ];
 
-    const req = httpTestingController.expectOne('api/session');
+    const req = httpTestingController.expectOne(baseApiUrl + 'api/session');
     expect(req.request.method).toEqual('GET');
     req.flush(mockSessions);
 

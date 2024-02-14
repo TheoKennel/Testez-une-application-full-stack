@@ -8,6 +8,7 @@ import {Session} from "../interfaces/session.interface";
 
 describe('SessionsService', () => {
   let sessionApi: SessionApiService;
+  let baseApiUrl = "http://localhost:8080/";
   let httpClientSpy = {
     get: jest.fn(),
     post: jest.fn(),
@@ -46,7 +47,7 @@ describe('SessionsService', () => {
     sessionApi.all().subscribe(sessions => {
       expect(sessions).toEqual(expectedSessions);
     });
-    expect(httpClientSpy.get).toHaveBeenCalledWith('api/session');
+    expect(httpClientSpy.get).toHaveBeenCalledWith(baseApiUrl + 'api/session');
   });
 
   it('should retrieve sessionApi detail', () => {
@@ -56,7 +57,7 @@ describe('SessionsService', () => {
     sessionApi.detail('1').subscribe(session => {
       expect(session).toEqual(expectedSession);
     });
-    expect(httpClientSpy.get).toHaveBeenCalledWith('api/session/1');
+    expect(httpClientSpy.get).toHaveBeenCalledWith(baseApiUrl + 'api/session/1');
   });
 
   it('should delete a sessionApi', () => {
@@ -65,7 +66,7 @@ describe('SessionsService', () => {
     sessionApi.delete('1').subscribe(response => {
       expect(response).toEqual({});
     });
-    expect(httpClientSpy.delete).toHaveBeenCalledWith('api/session/1');
+    expect(httpClientSpy.delete).toHaveBeenCalledWith(baseApiUrl + 'api/session/1');
   });
 
   it('should create a sessionApi', () => {
@@ -75,7 +76,7 @@ describe('SessionsService', () => {
     sessionApi.create(newSession).subscribe(session => {
       expect(session).toEqual(newSession);
     });
-    expect(httpClientSpy.post).toHaveBeenCalledWith('api/session', newSession);
+    expect(httpClientSpy.post).toHaveBeenCalledWith(baseApiUrl + 'api/session', newSession);
   });
 
   it('should update a sessionApi', () => {
@@ -85,7 +86,7 @@ describe('SessionsService', () => {
     sessionApi.update('1', updatedSession).subscribe(session => {
       expect(session).toEqual(updatedSession);
     });
-    expect(httpClientSpy.put).toHaveBeenCalledWith('api/session/1', updatedSession);
+    expect(httpClientSpy.put).toHaveBeenCalledWith(baseApiUrl + 'api/session/1', updatedSession);
   });
 
   it('should handle participation in a sessionApi', () => {
@@ -94,7 +95,7 @@ describe('SessionsService', () => {
     sessionApi.participate('1', 'userId').subscribe(response => {
       expect(response).toBeNull();
     });
-    expect(httpClientSpy.post).toHaveBeenCalledWith('api/session/1/participate/userId', null);
+    expect(httpClientSpy.post).toHaveBeenCalledWith(baseApiUrl + 'api/session/1/participate/userId', null);
   });
 
   it('should handle unparticipation in a sessionApi', () => {
@@ -103,6 +104,6 @@ describe('SessionsService', () => {
     sessionApi.unParticipate('1', 'userId').subscribe(response => {
       expect(response).toBeNull();
     });
-    expect(httpClientSpy.delete).toHaveBeenCalledWith('api/session/1/participate/userId');
+    expect(httpClientSpy.delete).toHaveBeenCalledWith(baseApiUrl + 'api/session/1/participate/userId');
   });
 });

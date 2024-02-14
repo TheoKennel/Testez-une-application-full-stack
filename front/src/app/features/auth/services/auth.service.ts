@@ -10,15 +10,13 @@ import { SessionInformation } from 'src/app/interfaces/sessionInformation.interf
 })
 export class AuthService {
 
-  private pathService = 'api/auth';
-
   constructor(private httpClient: HttpClient) { }
 
   public register(registerRequest: RegisterRequest): Observable<void> {
-    return this.httpClient.post<void>(`${this.pathService}/register`, registerRequest);
+    return this.httpClient.post<void>(`http://localhost:8080/api/auth/register`, registerRequest);
   }
 
   public login(loginRequest: LoginRequest): Observable<SessionInformation> {
-    return this.httpClient.post<SessionInformation>(`${this.pathService}/login`, loginRequest);
+    return this.httpClient.post<SessionInformation>(`http://localhost:8080/api/auth/login`, loginRequest);
   }
 }

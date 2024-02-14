@@ -25,6 +25,7 @@ describe('Form Component integration', () => {
   let httpTestingController: HttpTestingController;
   let router : Router;
   let matSnackBar : MatSnackBar;
+  let baseApiUrl = "http://localhost:8080/";
 
   const mockSession: Session = {
     id: 1,
@@ -115,7 +116,7 @@ describe('Form Component integration', () => {
       fixture.detectChanges();
       expect(router.url).toBe('/update/1');
 
-      const reqDetail = httpTestingController.expectOne('api/session/1');
+      const reqDetail = httpTestingController.expectOne(baseApiUrl + 'api/session/1');
       reqDetail.flush(mockSession);
 
       fixture.detectChanges();
@@ -127,7 +128,7 @@ describe('Form Component integration', () => {
 
      await buttonSubmit.click()
 
-      const req = httpTestingController.expectOne('api/session/1')
+      const req = httpTestingController.expectOne(baseApiUrl + 'api/session/1')
       req.flush(null)
       expect(req.request.method).toEqual("PUT");
       expect(router.navigate).toHaveBeenCalledWith(['sessions'])
@@ -155,7 +156,7 @@ describe('Form Component integration', () => {
       fixture.detectChanges();
 
       const req = httpTestingController.expectOne(req =>
-        req.url ==='api/session' && req.method === "POST");
+        req.url ===`${baseApiUrl}api/session` && req.method === "POST");
       expect(req.request.body).toEqual({
         name: 'New Session',
         date: '2023-01-01',
