@@ -4,13 +4,13 @@ describe('User End to End path test', () => {
     cy.visit('/register')
     cy.get('input[formControlName="firstName"]').type("Theo8")
     cy.get('input[formControlName="lastName"]').type("Kennel6")
-    cy.get('input[formControlName="email"]').type("endToEnd33@test.com")
+    cy.get('input[formControlName="email"]').type("endToEndFinal@test.com")
     cy.get('input[formControlName="password"]').type(`${"123456"}{enter}{enter}`)
   });
 
   it('Should login successful',() => {
     cy.url().should('include', '/login');
-    cy.get('input[formControlName=email]').type("endToEnd33@test.com")
+    cy.get('input[formControlName=email]').type("endToEndFinal@test.com")
     cy.get('input[formControlName=password]').type(`${"123456"}{enter}{enter}`)
     cy.url().should('include', '/sessions')
   });
@@ -52,7 +52,7 @@ describe('User End to End path test', () => {
     cy.get('[routerLink="me"]', { timeout: 10000 }).should('exist').click();
     cy.url().should('include', '/me');
     cy.contains('You are admin').should('not.exist');
-    cy.get("mat-card-content p", { timeout: 10000 }).contains('Email:').should('contain', 'Email: endToEnd33@test.com');
+    cy.get("mat-card-content p", { timeout: 10000 }).contains('Email:').should('contain', 'Email: endToEndFinal@test.com');
     cy.get('button').contains('span.ml1', 'Detail').should('exist').click();
     cy.url().should('eq', 'http://localhost:4200/');
   });
